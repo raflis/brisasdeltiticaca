@@ -1,0 +1,5949 @@
+@font-face
+    font-family font-light
+    font-style normal
+    src url(../fonts/Poppins-Light.ttf)
+
+@font-face
+    font-family font-bold
+    font-style normal
+    src url(../fonts/Poppins-Bold.ttf)
+
+@font-face
+    font-family font-extrabold
+    font-style normal
+    src url(../fonts/Poppins-ExtraBold.ttf)
+
+@font-face
+    font-family font-medium
+    font-style normal
+    src url(../fonts/Poppins-Medium.ttf)
+
+@font-face
+    font-family font-regular
+    font-style normal
+    src url(../fonts/Poppins-Regular.ttf)
+
+@font-face
+    font-family font-semibold
+    font-style normal
+    src url(../fonts/Poppins-SemiBold.ttf)
+
+section
+    position relative
+
+body
+    background #FFF
+    margin 0px
+    font-family font-regular
+    overflow-x hidden
+    position relative
+
+.loading
+    position fixed
+    top 0
+    width 100vw
+    height 120vh
+    background rgb(0,0,0,1)
+    display flex
+    justify-content center
+    align-items center
+    z-index 9999999999999999
+    #loader
+        border 2px #3F3F3F solid
+        border-radius 50%
+        border-top-color #FF616A
+        width 90px
+        height 90px
+        animation spin 1s linear infinite
+        z-index 9999
+        @keyframes spin
+            from
+                transform translate(-50%, -50%) rotate(0deg)
+            to
+                transform translate(-50%, -50%) rotate(360deg)
+
+.cc2
+    column-count 2
+
+.cc3
+    column-count 3
+
+.cc4
+    column-count 4
+
+.cc5
+    column-count 5
+
+.cc6
+    column-count 6
+
+#buyTicket
+    .modal-content
+        border 0
+        background-color transparent
+        border-radius 0
+    .modal-body
+        position relative
+        padding 0
+        .close_button
+            position absolute
+            top -25px
+            right 0
+            button
+                filter brightness(0) invert(1)
+                opacity .9
+                &:hover, &:hover
+                    box-shadow unset
+        .content
+            display flex
+            flex-wrap wrap
+            filter drop-shadow(0px 4px 5px rgba(0, 0, 0, .4));
+            .content_header
+                width 100%
+                display flex
+                flex-wrap wrap
+                justify-content space-around
+                border-radius 10px 10px 0 0
+                background-color #E4E4E4
+                padding 8px 0 4px
+                .title
+                    text-align center
+                    h2
+                        font-family font-medium
+                        font-size .8rem
+                        color rgba(0, 0, 0, .4)
+                        margin 0
+                    p
+                        margin 0
+                        font-size .8rem
+                        font-family font-bold
+                        color #000
+            .content_body
+                width 100%
+                background-color #FFF
+                text-align center
+                border-radius 0 0 10px 10px
+                padding 8px 0
+                button
+                    background-color #EF7D00
+                    border-radius 5px
+                    font-family font-bold
+                    color #FFF
+                    font-size .8rem
+                    border 0
+                    padding 4px 10px
+
+.btn
+    &:focus
+        box-shadow unset
+
+.form-check-input.is-invalid, .was-validated .form-check-input:invalid
+    border-color #e3342f !important
+    box-shadow 0 0 0 0.25rem rgba(227, 52, 47, .25)
+
+.was-validated
+    .form-control:valid, .form-control.is-valid
+        border 1px solid #38c172 !important
+
+.was-validated
+    .form-control:invalid, .form-control.is-invalid
+        border 1px solid #e3342f !important
+
+.was-validated
+    .form-select:valid, .form-select.is-valid
+        border 1px solid #38c172 !important
+
+.was-validated
+    .form-select:invalid, .form-select.is-invalid
+        border 1px solid #e3342f !important
+
+.was-validated .form-check-input:invalid, .form-check-input.is-invalid
+    border 1px solid #e3342f !important
+
+.oscuro
+    background linear-gradient(90deg, #000000 0%, #3A3A3A 100%) !important
+
+.fondo-cart-active
+    background rgba(0, 0, 0, .7) !important
+    display block !important
+
+.fondo-cart
+    position fixed
+    display none
+    height 100%
+    width 100%
+    top 0
+    left 0
+    z-index 9999
+    transition transform .3s ease-in
+
+.cartlist-active
+    transform translateX(0%) !important
+
+.cartlist
+    display block
+    position fixed
+    top 0
+    right 0
+    background #FFF
+    height 100vh
+    width 30%
+    z-index 9999999999
+    transform translateX(100%)
+    transition transform .3s ease-in
+    overflow-y auto
+    .cartlist_header
+        display flex
+        flex-wrap wrap
+        justify-content space-between
+        align-items center
+        flex-direction row
+        width 100%
+        padding 30px 40px 0px
+        h4
+            font-size 1.2rem
+            color #4d4d4d
+            font-family font-bold
+        .cartlist_close
+            top 12px
+            right 24px
+            cursor pointer
+            background-color rgba(0,0,0,0.1)
+            height 30px
+            width 30px
+            border-radius 50%
+            display flex
+            align-items center
+            justify-content center
+            &:hover
+                i
+                    color #000
+            i
+                font-size 1.4rem
+                color rgba(0,0,0,0.2)
+                transition .4s all
+    .items
+        position relative
+        display flex
+        flex-wrap wrap
+        width 100%
+        margin-top 40px
+        padding 0px 40px 30px
+        .empty_cart
+            font-size 1.1rem
+            text-align center
+            font-family font-light
+            color #868785
+            margin-top 70%
+            width 100%
+            i
+                font-size 2.4rem
+                margin-bottom 5px
+        .item
+            width 100%
+            margin-bottom 40px
+            display flex
+            flex-wrap wrap
+            justify-content space-between
+            .image
+                width 40%
+                img
+                    width 100%
+            .item_detail
+                width 55%
+                display flex
+                flex-wrap wrap
+                justify-content space-between
+                align-items flex-start
+                .detail
+                    width 85%
+                    a.h5_name
+                        text-decoration none
+                        font-family font-bold
+                        font-size .9rem
+                        color #000
+                        margin-bottom 10px
+                        line-height 1.3
+                        display block
+                    p
+                        margin-bottom 5px
+                        font-size .85rem
+                        color #000
+                        line-height 1.3
+                        font-family font-medium
+                .delete_product
+                    width 10%
+                    cursor pointer
+                    &:hover
+                        i
+                            color #000
+                    i
+                        font-size 1.2rem
+                        color rgba(0, 0, 0, .4)
+    .subtotal
+        width 100%
+        background-color rgba(0, 0, 0, .05)
+        display flex
+        flex-wrap wrap
+        align-items center
+        justify-content space-between
+        padding 30px 40px
+        p
+            font-size 1rem
+            font-family font-medium
+            color rgba(0, 0, 0, .8)
+            &:nth-child(2)
+                font-family font-bold
+                font-size 1.2rem
+        a
+            background-color #f48120
+            text-decoration none
+            font-size 1rem
+            font-family font-medium
+            width 100%
+            color #FFF
+            padding 5px 0 6px
+            text-align center
+            border-radius 4px
+
+#cartGracias
+    .modal-content
+        .modal-body
+            position relative
+            button.btn-close
+                position absolute !important
+                top 8px
+                right 8px
+            h4
+                color #000
+                font-size 1rem
+                font-family font-light
+                font-weight bold
+                margin-bottom 25px
+            .content_gracias
+                display flex
+                flex-wrap wrap
+                justify-content space-between
+                .image
+                    width 30%
+                    img
+                        width 100%
+                .description
+                    width 66%
+                    h3
+                        color #4d4d4d
+                        font-family font-bold
+                        font-size 1rem
+                        margin-bottom 3px
+                    .p1
+                        color #808080
+                        font-size .9rem
+                        margin-bottom 13px
+                        font-family font-light
+                    .p0
+                        color #4d4d4d
+                        font-size .9rem
+                        margin-bottom 3px
+                    .price_old_product
+                        color #aaa
+                        font-size .85rem
+                        margin-bottom 4px
+                        text-decoration line-through
+                        font-family font-light
+                        line-height 1
+                    .price_now_product
+                        color #4d4d4d
+                        font-size 1rem
+                        font-family font-semibold
+                        line-height 1
+                .gocart
+                    background-color #006eb7
+                    text-decoration none
+                    font-size .9rem
+                    font-family font-medium
+                    width 100%
+                    color #FFF
+                    padding 5px 0 6px
+                    text-align center
+                    border-radius 4px
+                    margin-bottom 7px
+                    margin-top 15px
+                .goback
+                    background-color #ffff
+                    text-decoration none
+                    font-size .9rem
+                    font-family font-regular
+                    width 100%
+                    color #006eb7
+                    padding 5px 0 6px
+                    text-align center
+                    border-radius 4px
+
+#membershipCancel
+    .modal-content
+        .modal-body
+            position relative
+            button.btn-close
+                position absolute !important
+                top 8px
+                right 8px
+            h4
+                color #000
+                font-size 1rem
+                font-family font-light
+                font-weight bold
+                margin-bottom 25px
+                
+.beforesend
+    position fixed
+    margin-top -13vh
+    width 100vw
+    height 100vh
+    background rgba(0, 0, 0, .2)
+    display none
+    justify-content center
+    align-items center
+    z-index 9999999999999999
+    .beforesend_loader
+        width 48px
+        height 48px
+        border-radius 50%
+        display inline-block
+        border-top 4px solid #FFF
+        border-right 4px solid transparent
+        box-sizing border-box
+        animation rotation 1s linear infinite
+        &:after
+            content ''
+            box-sizing border-box
+            position absolute
+            left 0
+            top 0
+            width 48px
+            height 48px
+            border-radius 50%
+            border-left 4px solid #FF3D00
+            border-bottom 4px solid transparent
+            animation rotation 0.5s linear infinite reverse
+    @keyframes rotation
+        0%
+            transform rotate(0deg)
+        100%
+            transform rotate(360deg)
+
+#header //header
+    background rgba(0, 0, 0, .3)
+    height 13vh
+    position fixed
+    z-index 9
+    width 100%
+    top 0
+    display flex
+    align-items center
+    z-index 999
+    transition .3s all
+    .left-menu
+        img.img-logo
+            height 60px
+    .right-menu
+        display flex
+        justify-content flex-end
+        align-items center
+        ul
+            display flex
+            flex-wrap wrap
+            align-items center
+            margin 0
+            list-style-type none
+            li
+                padding-right 50px
+                position relative
+                .cant
+                    position absolute
+                    height 19px
+                    width 19px
+                    top -11px
+                    left 17px
+                    font-size .8rem
+                    display flex
+                    align-items center
+                    justify-content center
+                    background-color #006eb7
+                    border-radius 50%
+                    z-index 1
+                    color #FFF
+                    line-height 0
+                a.btn-socio
+                    color #FFF
+                    font-family font-medium
+                    background linear-gradient(91.55deg, #EF7D00 0%, #FFB171 100%)
+                    font-size 1rem
+                    text-decoration none
+                    padding 5px 15px
+                    border-radius 12px
+                a.cart_a
+                    text-decoration none
+                    img.cart
+                        height 30px
+                a.user_a
+                    display flex
+                    align-items center
+                    text-decoration none
+                    .user
+                        height 30px
+                        width 30px
+                        background-color #FFF
+                        border-radius 50%
+                        display flex
+                        align-items center
+                        justify-content center
+                        margin-right 8px
+                        img
+                            height 20px
+                    p
+                        margin 0
+                        font-size 1rem
+                        font-family font-bold
+                        color #FFF
+        .burger0
+            float right
+            display block
+            cursor pointer
+            color #00AC67
+            .linea1, .linea2, .linea3
+                width 40px
+                height 4px
+                background-color #FFF
+                margin 5px
+                transition all .3s ease
+            .linea2
+                width 36px
+            .linea3
+                width 25px
+        .toggle1
+            transform rotate(-45deg) translate(-6.5px,6.5px)
+        .toggle2
+            opacity 0
+        .toggle3
+            transform rotate(45deg) translate(-5.5px,-6.5px)
+    .fondo-active
+        background rgba(0, 0, 0, .7) !important
+        display block !important
+    .fondo
+        background rgba(0, 0, 0, 0)
+        position fixed
+        display none
+        height 100%
+        width 100%
+        top 0
+        left 0
+        z-index 9
+        transition transform .3s ease-in
+    .nav-mobile-active
+        transform translateX(0%) !important
+    .nav-mobile
+        display block
+        position fixed
+        top 0
+        right 0
+        background #171717
+        height 100vh
+        width 25%
+        z-index 9999999999
+        padding 100px 60px 30px 30px
+        transform translateX(100%)
+        transition transform .3s ease-in
+        z-index 10
+        .lists
+            display flex
+            flex-direction column
+            height 80vh
+            justify-content space-between
+            text-align right
+            ul
+                list-style none
+                padding-left 15px
+                li
+                    padding-bottom 18px
+                    a
+                        text-decoration none
+                        color #fff
+                        font-size 1.2rem
+                        font-family font-bold
+                        transition .3s all
+                        text-transform uppercase
+                        &:hover
+                            color #FFED00
+                    .active
+                        color #FFED00
+            .bottom_
+                display flex
+                flex-wrap wrap
+                flex-direction column
+                align-items center
+                padding-left 30px
+                .btn1
+                    background linear-gradient(91.55deg, #EF7D00 0%, #FFB171 100%)
+                .btn2
+                    background linear-gradient(91.55deg, #006EB7 0%, #44CCFD 100%)
+                .btn3
+                    background linear-gradient(91.55deg, #009640 0%, #92D050 100%)
+                .btn4
+                    background linear-gradient(91.55deg, #E30613 0%, #F85962 100%)
+                a
+                    border 3px solid #fff
+                    border-radius 15px
+                    width 100%
+                    text-align center
+                    color #FFFF
+                    font-size 1.0rem
+                    font-family font-bold
+                    text-decoration none
+                    padding 5px 0 4px
+                    margin-bottom 18px
+                img
+                    height 70px
+        .burger
+            position absolute
+            top 20px
+            right 20px
+            cursor pointer
+            .linea1, .linea2, .linea3
+                width 20px
+                height 4px
+                background-color #FFF
+                margin 5px
+                transition all .3s ease
+            .toggle1
+                transform rotate(-45deg) translate(-7px, 7px)
+            .toggle2
+                opacity 0
+            .toggle3
+                transform rotate(45deg) translate(-5.5px, -6.5px)
+
+#loginModal
+    .modal-content
+        border-radius 30px
+        #modal_forgot
+            display none
+        #modal_login
+            position relative
+            display flex
+            flex-direction column
+            justify-content center
+            align-items center
+            padding-bottom 30px
+            padding-top 20px
+            #alert_login
+                width 79%
+                padding-top 10px
+                padding-bottom 10px
+                position relative
+                .btn-close
+                    top 15px
+                    right 10px
+                    padding 0
+                    &:focus
+                        box-shadow none
+            .close
+                position absolute
+                top 15px
+                right 15px
+                &:focus
+                    box-shadow none
+            img
+                height 150px
+                width fit-content
+                margin-bottom 8px
+            h3
+                color #EF7D00
+                font-family font-bold
+                font-size 1.5rem
+                text-align center
+                margin-bottom 18px
+            p
+                font-family font-semibold
+                color #C4C4C4
+                font-size .9rem
+                margin-top 20px
+                margin-bottom 0
+            form
+                display flex
+                flex-direction column
+                width 100%
+                align-items center
+                padding 0 10%
+                input
+                    box-shadow 0px 4px 15px rgba(0, 0, 0, 0.1)
+                    color #D2D2D2
+                    font-size .9rem
+                    background #FFF
+                    border-radius 15px
+                    border 0
+                    margin-bottom 20px
+                    &:focus
+                        box-shadow 0px 4px 15px rgba(0, 0, 0, 0.1)
+                        border 0
+                a
+                    color #006EB7
+                    font-family font-light
+                    font-size .9rem
+                    text-decoration none
+                ::placeholder
+                    color #D2D2D2
+                    font-size .9rem
+                button
+                    margin-top 70px
+                    width 100%
+                    background #006EB7
+                    box-shadow 0px 4px 10px rgba(0, 110, 183, 0.35)
+                    border-radius 15px
+                    border 0
+                    font-family font-bold
+                    color #FFF
+                    padding-top 9px
+                    padding-bottom 8px
+        #modal_forgot
+            position relative
+            display none
+            flex-direction column
+            justify-content center
+            align-items center
+            padding-bottom 30px
+            padding-top 20px
+            .close
+                position absolute
+                top 15px
+                right 15px
+                &:focus
+                    box-shadow none
+            img
+                height 150px
+                width fit-content
+                margin-bottom 8px
+            h3
+                color #009640
+                font-family font-bold
+                font-size 1.5rem
+                text-align center
+                margin-bottom 18px
+            p.tit
+                font-family font-light
+                text-align center
+                padding 0 10%
+                color #000
+                font-size .8rem
+                margin-bottom 25px
+                line-height 1.4
+            p.copyright
+                font-family font-semibold
+                color #C4C4C4
+                font-size .9rem
+                margin-top 20px
+                margin-bottom 0
+            a
+                color #006EB7
+                font-family font-light
+                font-size .9rem
+                text-decoration none
+                margin-top 14px
+            form
+                display flex
+                flex-direction column
+                width 100%
+                align-items center
+                padding 0 10%
+                input
+                    box-shadow 0px 4px 15px rgba(0, 0, 0, 0.1)
+                    color #D2D2D2
+                    font-size .9rem
+                    background #FFF
+                    border-radius 15px
+                    border 0
+                    margin-bottom 20px
+                    &:focus
+                        box-shadow 0px 4px 15px rgba(0, 0, 0, 0.1)
+                        border 0
+                ::placeholder
+                    color #D2D2D2
+                    font-size .9rem
+                button
+                    margin-top 30px
+                    width 100%
+                    background #EF7D00
+                    box-shadow 0px 4px 10px rgba(239, 125, 0, 0.35)
+                    border-radius 15px
+                    border 0
+                    font-family font-bold
+                    color #FFF
+                    padding-top 9px
+                    padding-bottom 8px
+
+.login_create
+    margin-top 13vh
+    .content
+        display flex
+        flex-wrap wrap
+        .content_left
+            width 50%
+            background-image url(../images/fondo_login_create.png)
+            background-position center
+            background-size cover
+            background-repeat no-repeat
+        .content_right
+            width 50%
+            padding 60px 13% 60px 100px
+            p.tit_small
+                color #9F9F9F
+                font-family font-medium
+                text-decoration underline
+                font-size .8rem
+                text-align center
+                margin 0
+                line-height 1
+            p.tit
+                color #E30613
+                font-family font-bold
+                font-size 2rem
+                text-align center
+            form
+                .form-group
+                    margin-bottom 15px
+                    label.input-label
+                        color #006EB7
+                        font-family font-bold
+                        font-size .9rem
+                        padding-left .75rem
+                    input[type=text], input[type=password], input[type=date], select
+                        color rgba(106, 107, 106, 0.3);
+                        font-family font-semibold
+                        font-size .9rem
+                        background-color #FFFFFF
+                        box-shadow 0px 0px 6px rgba(0, 0, 0, 0.4)
+                        border-radius 12px
+                    select
+                        background-image url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E") !important
+                        background-position right 0.75rem center !important
+                        background-repeat no-repeat !important
+                        background-size 16px 12px !important
+                    ::placeholder
+                        color rgba(106, 107, 106, 0.3);
+                        font-family font-semibold
+                        font-size .9rem
+                    .btn-submit
+                        font-family font-semibold
+                        color #FFF
+                        background-color #E30613
+                        font-size .9rem
+                        padding 4px 40px 3px
+                        border-radius 12px
+                        margin-top 30px
+                .first-check
+                    margin-top 20px
+                .form-check
+                    padding-left 2.5rem
+                    label
+                        font-family font-medium
+                        color #717171
+                        font-size .8rem
+                        line-height 1.3
+                        a
+                            color #E30613
+                            text-decoration none
+                    input
+                        border-color #EF7D00
+                        border-radius 50%
+                        &:checked
+                            background-color #EF7D00
+                        &:focus
+                            box-shadow unset
+                    
+
+.sec1
+    .carousel-slider
+        position relative
+        margin-bottom 0 !important
+        .item
+            height 100vh
+            background-position center
+            background-size cover
+            background-repeat no-repeat
+            position relative
+            .text
+                position absolute
+                bottom 28%
+                left 15%
+                p
+                    font-size 3rem
+                    color #FFF
+                    font-family font-bold
+                    margin 0
+                    line-height 1.4
+                    &:nth-child(2)
+                        margin-bottom 50px
+                a
+                    background linear-gradient(91.55deg, #E30613 0%, #F85962 100%)
+                    border 3px solid #FFFFFF
+                    border-radius 15px
+                    text-decoration none
+                    color #FFF
+                    font-size 1rem
+                    font-family font-bold
+                    padding 4px 70px 3px
+                    transition .5s all
+                    display inline-block
+                    &:hover
+                        transform scale(1.1)
+        ul.slick-dots
+            position absolute
+            bottom 17px
+            li
+                button
+                    &:before
+                        opacity 1
+                        font-size 20px
+                        color rgba(255, 255, 255, .3)
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 20px
+                        color #FF616A
+
+.sec2
+    padding 50px 0 10px
+    .title
+        background-color #EF7D00
+        width 30%
+        h2
+            color #FFF
+            font-size 2rem
+            font-family font-bold
+            padding 20px 50px
+            text-align right
+    .c2c_a
+        text-align center
+        padding-top 30px
+        a
+            color #FFF
+            font-size .9rem
+            font-family font-bold
+            background linear-gradient(91.55deg, #E30613 0%, #F85962 100%)
+            border-radius 15px
+            padding 4px 70px 3px
+            text-decoration none
+            transition .5s all
+            display inline-block
+            &:hover
+                transform scale(1.1)
+    .carousel-eventos
+        .item
+            display flex
+            flex-wrap wrap
+            justify-content space-between
+            margin-top 50px
+            margin-bottom 20px
+            padding 0 15px
+            .image
+                width 27%
+                img
+                    width 100%
+            .text
+                width 71%
+                .text_title
+                    display flex
+                    flex-wrap wrap
+                    justify-content space-between
+                    align-items center
+                    margin-bottom 30px
+                    h3
+                        color #000
+                        font-size 1.2rem
+                        font-family font-bold
+                        position relative
+                        width 60%
+                        &:after
+                            content ''
+                            width 100%
+                            height 10px
+                            background-color #EF7D00
+                            position absolute
+                            bottom -12px
+                            left 0
+                    a
+                        background linear-gradient(91.55deg, #009640 0%, #9AE8BB 100%)
+                        border-radius 15px
+                        text-decoration none
+                        color #FFF
+                        font-size .9rem
+                        font-family font-bold
+                        padding 7px 35px 6px
+                .text_description
+                    p
+                        font-size .9rem
+                        color #4D4D4D
+                        line-height 1.4
+                        font-family font-medium
+                        text-align justify
+                .text_buttons
+                    display flex
+                    flex-wrap wrap
+                    justify-content space-between
+                    a
+                        background #000
+                        border-radius 0
+                        padding 12px 40px 11px
+                        font-size 1.1rem
+                        text-decoration none
+                        font-family font-bold
+                        color #FFF
+        ul.slick-dots
+            li
+                margin 0 1px
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #E0E0E0
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #006EB7
+
+.sec3
+    background-image url(../images/puquina_bg.jpg)
+    background-position center
+    background-size cover
+    background-repeat no-repeat
+    margin-top 50px
+    .content
+        display flex
+        flex-wrap wrap
+        justify-content space-between
+        .content_left
+            width 27%
+            background-color #FFF
+            padding 60px 35px
+            display flex
+            flex-direction column
+            justify-content center
+            .image
+                img
+                    width 100%
+            h2
+                font-family font-extrabold
+                font-size 1.4rem
+                color #000
+                text-align center
+                margin 30px 0 15px
+            p
+                font-family font-semibold
+                font-size .9rem
+                color #000
+                line-height 1.4
+                text-align justify
+                margin 0
+        .content_right
+            width 70%
+            padding 30px 0 25px
+            display flex
+            flex-direction column
+            justify-content center
+            p.content_p
+                font-family font-medium
+                font-size .9rem
+                color #fff
+                text-align justify
+                line-height 1.4
+                margin 0
+            .items
+                display flex
+                flex-wrap wrap
+                margin-top 50px
+                .item
+                    width 33%
+                    padding 10px 12px
+                    display flex
+                    .item_
+                        background-color #FFF
+                        display flex
+                        flex-wrap wrap
+                        flex-direction column
+                        padding 30px 20px
+                        border-radius 15px
+                        transition .3s all
+                        &:hover
+                            background-color #FFED00
+                        .item_image
+                            width 100%
+                            text-align center
+                            margin-bottom 20px
+                            img
+                                height 40px
+                        .item_text
+                            p
+                                color #000
+                                text-align center
+                                line-height 1.4
+                                margin 0
+                                &:nth-child(1)
+                                    font-family font-bold
+                                    font-size 1rem
+                                    margin-bottom 10px
+                                &:nth-child(2)
+                                    font-family font-medium
+                                    font-size .9rem
+
+.sec4
+    padding 60px 0
+    .title
+        background-color #009640
+        width 40%
+        h2
+            color #FFF
+            font-size 2rem
+            font-family font-bold
+            padding 20px 50px
+            text-align right
+    .carousel-testimonios
+        margin-top 50px
+        .item
+            margin-bottom 20px
+            padding-top 130px
+            .item_user
+                display flex
+                flex-wrap wrap
+                justify-content space-between
+                align-items center
+                background-color #E2E2E2
+                border-radius 7px
+                margin 0 5px
+                padding 10px 25px
+                opacity .7
+                .image
+                    width 30%
+                    img
+                        width 100%
+                        border-radius 50%
+                .text
+                    width 66%
+                    h3
+                        font-family font-bold
+                        color #000
+                        font-size .8rem
+                        margin-bottom 10px
+                    .stars
+                        display flex
+                        flex-wrap wrap
+                        flex-direction row
+                        i
+                            color #006EB7
+                            font-size .9rem
+            .item_text
+                display none
+        .slick-current
+            padding-top 0
+            .item_user
+                background-color #FFF
+                opacity 1
+                .text
+                    h3
+                        color #000
+                    .stars
+                        i
+                            color #EF7D00
+            .item_text
+                display block
+                margin 5px 5px 0px 5px
+                background-color #006EB7
+                padding 40px 35px
+                border-radius 7px
+                p
+                    font-size .8rem
+                    font-family font-medium
+                    color #FFF
+                    text-align justify
+                    margin 0
+        ul.slick-dots
+            li
+                margin 0 1px
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #E0E0E0
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #EF7D00
+
+.sec5
+    .content
+        display flex
+        flex-wrap wrap
+        width 100%
+        position relative
+        .logo
+            position absolute
+            height 100%
+            left 10%
+            top 0
+            width 20%
+            display flex
+            align-items center
+            padding 0 15px
+            background-color #FFF
+            z-index 1
+            img
+                width 100%
+        .content_top
+            width 100%
+            background-image url(../images/bg_taller1.png)
+            background-position center
+            background-size cover
+            background-repeat no-repeat
+            height 300px
+            position relative
+            display flex
+            align-items center
+            .c2c
+                position absolute
+                bottom -40px
+                left 35%
+                background-color #E30613
+                box-shadow 0px 4px 10px rgba(0, 0, 0, 0.15)
+                padding 20px 30px
+                z-index 2
+                h3
+                    font-family font-bold
+                    font-size 2.5rem
+                    color #FFF
+                    margin 0
+            .text
+                display flex
+                align-items center
+                padding-left 33%
+                h3
+                    font-family font-bold
+                    font-size 1.6rem
+                    margin 0
+                    color #FFF
+                a
+                    font-family font-bold
+                    font-size .9rem
+                    background linear-gradient(91.55deg, #E30613 0%, #F85962 100%)
+                    border 3px solid #FFFFFF
+                    border-radius 15px
+                    text-decoration none
+                    color #FFF
+                    padding 4px 70px 3px
+                    margin-left 100px
+                    transition .5s all
+                    &:hover
+                        transform scale(1.1)
+        .content_bottom
+            width 100%
+            background-image url(../images/bg_taller2.png)
+            background-position center
+            background-size cover
+            background-repeat no-repeat
+            height 300px
+            position relative
+            display flex
+            align-items center
+            .text
+                display flex
+                align-items center
+                padding-left 33%
+                h3
+                    font-family font-bold
+                    font-size 1.6rem
+                    margin 0
+                    color #FFF
+                a
+                    font-family font-bold
+                    font-size .9rem
+                    background linear-gradient(91.55deg, #E30613 0%, #F85962 100%)
+                    border 3px solid #FFFFFF
+                    border-radius 15px
+                    text-decoration none
+                    color #FFF
+                    padding 4px 70px 3px
+                    margin-left 100px
+                    transition .5s all
+                    &:hover
+                        transform scale(1.1)
+
+.sec6
+    padding 60px 0
+    h2.tit
+        text-align center
+        background-color #006EB7
+        color #FFF
+        font-family font-bold
+        font-size 2rem
+        padding 25px 0
+        margin 0 20px
+        margin-bottom 65px
+    .carousel-blog
+        .item
+            display flex
+            flex-wrap wrap
+            background #FFFFFF
+            box-shadow 0px 4px 20px rgba(0, 0, 0, 0.15)
+            border-radius 0px 0px 25px 25px
+            margin-bottom 30px
+            margin-right 20px
+            margin-left 20px
+            .item_header
+                width 100%
+                img
+                    width 100%
+            .item_content
+                width 100%
+                padding 30px 20px 8px
+                text-align center
+                height 300px
+                display flex
+                flex-wrap wrap
+                flex-direction column
+                justify-content space-between
+                h2
+                    color #E30613
+                    font-size .95rem
+                    font-family font-bold
+                    margin-bottom 15px
+                    text-align left
+                .description
+                    p
+                        color #000
+                        font-size .85rem
+                        line-height 1.4
+                        text-align justify
+                        margin-bottom 13px
+                a
+                    font-family font-bold
+                    color #253238
+                    background-color #FFED00
+                    font-size .8rem
+                    text-decoration none
+                    padding 4px 30px 3px
+                    border-radius 6px
+                    transition .5s all
+                    &:hover
+                        transform scale(1.1)
+                p
+                    color #C2C2C2
+                    font-size .6rem
+                    text-align center
+                    margin 5px 0 0
+        ul.slick-dots
+            li
+                margin 0 1px
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #E0E0E0
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #006EB7
+        .slick-prev
+            left -40px
+        .slick-next
+            right -40px
+        .slick-prev, .slick-next
+            width 40px
+            &:before
+                font-size 30px
+                color #CFCFCF
+                opacity .8
+
+.sec7
+    //background-image url(../images/bg_nosotros.jpg)
+    background-position center
+    background-size cover
+    background-repeat no-repeat
+    height 60vh
+    p
+        color #FFF
+        font-family font-medium
+        font-size 1rem
+        margin-top 28vh
+        text-align center
+        margin-bottom 0
+    h1
+        color #FFF
+        font-family font-bold
+        font-size 4rem
+        text-align center
+
+.sec8
+    padding 60px 0 80px
+    .title
+        background-color #E30613
+        width 47%
+        h2
+            color #FFF
+            font-size 2rem
+            font-family font-bold
+            padding 20px 50px
+            text-align right
+    .text
+        margin 40px 0
+        p
+            color #4D4D4D
+            font-family font-medium
+            font-size 1rem
+            line-height 1.4
+            margin 0
+    .carousel-nosotros
+        .item
+            margin 0 20px
+            img
+                width 100%
+        .slick-prev
+            position absolute !important
+            bottom -47px
+            top unset
+            right 35px
+            left 0
+            margin auto
+        .slick-next
+            position absolute !important
+            bottom -47px
+            top unset
+            left 0
+            right -35px
+            margin auto
+        .slick-prev, .slick-next
+            width 40px
+            &:before
+                font-size 30px
+                color #CFCFCF
+                opacity .8
+
+.sec9
+    background-image url(../images/bg_historia.jpg)
+    background-position center
+    background-size cover
+    background-repeat no-repeat
+    padding 60px 0
+    h2
+        color #FFF
+        font-size 2rem
+        font-family font-bold
+        background-color #EF7D00
+        padding 18px 50px
+        text-align center
+        margin 0 10%
+        margin-bottom 50px
+    .text
+        h3
+            font-size 2rem
+            font-family font-bold
+            color #FFF
+            font-style italic
+            margin-bottom 40px
+        p
+            line-height 1.4
+            font-family font-medium
+            font-size 1rem
+            color #FFF
+            text-align justify
+
+.sec10
+    padding 60px 0
+    .items
+        display flex
+        flex-wrap wrap
+        justify-content space-between
+        .item
+            width 45%
+            background-color #515151
+            border-radius 10px
+            padding 50px 40px
+            transition .4s all
+            &:hover
+                background-color #ffed00
+                h4, p
+                    color #000
+            h4
+                color #FFF
+                font-family font-bold
+                font-size 1.8rem
+                margin-bottom 18px
+                text-align center
+            p
+                line-height 1.4
+                color #FFF
+                font-family font-medium
+                font-size .9rem
+                margin 0
+                text-align justify
+
+.sec11
+    padding 60px 0
+    .title
+        background-color #FFED00
+        width 50%
+        h2
+            color #FFF
+            font-size 2rem
+            font-family font-bold
+            padding 20px 50px
+            text-align right
+    .carousel-consejo-directivo
+        margin-top 50px
+        .item
+            display flex
+            flex-wrap wrap
+            justify-content center
+            padding-top 130px
+            .item_card
+                width 100%
+                display flex
+                flex-wrap wrap
+                justify-content space-between
+                align-items center
+                background-color #E2E2E2
+                border-radius 10px
+                margin 0 10px 8px
+                padding 15px 20px
+                opacity .7
+                .image
+                    width 20%
+                    img
+                        width 100%
+                .text
+                    width 74%
+                    h4
+                        font-family font-bold
+                        color #515151
+                        font-size .8rem
+                        margin-bottom 2px
+                    p
+                        font-family font-semibold
+                        font-style italic
+                        color #515151
+                        font-size .7rem
+                        margin 0
+            .item_person
+                display none
+        .slick-current
+            padding-top 0
+            .item_card
+                background-color #E30613
+                opacity 1
+                .image
+                    display none
+                .text
+                    width 100%
+                    h4, p
+                        color #FFF
+            .item_person
+                display block
+                width 100%
+                margin-bottom 20px
+                padding 0 10px
+                border-radius 10px
+                img
+                    width 100%
+                    border-radius 10px
+        ul.slick-dots
+            li
+                margin 0 1px
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #E0E0E0
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #006EB7
+
+.sec12
+    background-image url(../images/bg_eventos.jpg)
+    background-position center
+    background-size cover
+    background-repeat no-repeat
+    height 60vh
+    p
+        color #FFF
+        font-family font-medium
+        font-size 1rem
+        margin-top 28vh
+        text-align center
+        margin-bottom 0
+    h1
+        color #FFF
+        font-family font-bold
+        font-size 4rem
+        text-align center
+
+.sec13
+    margin 70px 0 40px
+    .line
+        position absolute
+        width 100%
+        top 0
+        left 0
+        height 80px
+    .line1
+        background-color #006EB7
+    .line2
+        background-color #EF7D00
+    .line3
+        background-color #009640
+    .line4
+        background-color #FFED00
+    .content
+        display flex
+        flex-wrap wrap
+        justify-content space-between
+        position relative
+        margin-bottom 60px
+        .image
+            width 33%
+            img
+                width 100%
+        .content_text
+            width 63%
+            display flex
+            flex-direction column
+            .content_header
+                display flex
+                flex-wrap wrap
+                justify-content space-between
+                align-items center
+                height 80px
+                h2
+                    color #FFF
+                    font-size 2rem
+                    font-family font-bold
+                    margin 0
+                a
+                    font-family font-bold
+                    font-size 1rem
+                    color #FFF
+                    text-decoration none
+                    display inline-block
+                    background linear-gradient(91.55deg, #000000 0%, #656565 100%)
+                    padding 4px 30px 3px
+                    border 3px solid #FFFFFF
+                    border-radius 15px
+            .text
+                margin 30px 0
+                p
+                    color #4D4D4D
+                    line-height 1.4
+                    text-align justify
+                    font-family font-medium
+                    font-size .9rem
+            .text_button
+                text-align center
+                margin-top 25px
+                a
+                    font-family font-bold
+                    font-size .9rem
+                    color #FFF
+                    background linear-gradient(91.55deg, #E30613 0%, #F85962 100%)
+                    padding 6px 50px 5px
+                    text-decoration none
+                    border-radius 15px
+            .items_tab
+                box-shadow 0 8px 10px rgba(0, 0, 0, .45)
+                border-radius 10px
+                .navpill1
+                    background-color #006EB7
+                .navpill2
+                    background-color #EF7D00
+                .navpill3
+                    background-color #009640
+                .navpill4
+                    background-color #FFED00
+                ul.nav-pills
+                    justify-content space-between
+                    border-radius 11px 11px 0 0
+                    padding-bottom 1px
+                    li.nav-item
+                        margin-bottom -1px
+                        .navlink1
+                            background-color #006EB7
+                        .navlink2
+                            background-color #EF7D00
+                        .navlink3
+                            background-color #009640
+                        .navlink4
+                            background-color #FFED00
+                        button.nav-link
+                            border-radius 10px 10px 0 0
+                            color #FFF
+                            font-size .9rem
+                            font-family font-bold
+                            padding-top 12px
+                            padding-bottom 12px
+                        button.active
+                            background-color #FFF
+                            color #000
+                .tab-content
+                    .tab-pane
+                        padding 30px 40px 35px
+                        p
+                            font-family font-medium
+                            font-size .8rem
+                            color #4D4D4D
+                            line-height 1.4
+                        ul
+                            li
+                                color #4D4D4D
+                        .zonas
+                            img
+                                width 100% !important
+                                height auto !important
+                        .promociones
+                            p
+                                text-align center
+                                img
+                                    width 80% !important
+                                    height auto !important
+                        .carta
+                            a
+                                background linear-gradient(91.55deg,#000 0%,#656565 100%)
+                                font-family font-bold
+                                color #FFF
+                                font-size .9rem
+                                text-decoration none
+                                padding 4px 30px 3px
+    .h2events1
+        color #006EB7
+    .h2events2
+        color #EF7D00
+    .h2events3
+        color #009640
+    .h2events
+        font-size 2rem
+        font-family font-bold
+        margin-bottom 50px
+        text-align center
+    .eventspage1
+        ul.slick-dots
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #006EB7
+    .eventspage2
+        ul.slick-dots
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #EF7D00
+    .eventspage3
+        ul.slick-dots
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #009640
+    .carousel-eventos-page
+        .item
+            display flex
+            flex-wrap wrap
+            flex-direction column
+            margin 0 40px 30px
+            text-align center
+            img
+                width 100%
+                margin-bottom 17px
+            .comprar1
+                background linear-gradient(91.55deg, #006EB7 0%, #44CCFD 100%)
+            .comprar2
+                background linear-gradient(91.55deg, #EF7D00 0%, #FFAF6D 100%)
+            .comprar3
+                background linear-gradient(91.55deg, #009640 0%, #92D050 100%)
+            .comprar
+                text-decoration none
+                font-family font-bold
+                color #FFF
+                font-size .9rem
+                border-radius 15px
+                
+                padding-top 6px
+                padding-bottom 5px
+        ul.slick-dots
+            li
+                margin 0 1px
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #E0E0E0
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+        .slick-prev
+            left -40px
+        .slick-next
+            right -40px
+        .slick-prev, .slick-next
+            width 40px
+            &:before
+                font-size 30px
+                color #CFCFCF
+                opacity .8
+
+.sec14
+    margin-top 13vh
+    .item1
+        //background-image url(../images/bg_evento.jpg)
+        background-position center
+        background-size cover
+        background-repeat no-repeat
+        height 38vh
+        display flex
+        flex-direction column
+        justify-content center
+        align-items center
+        p
+            color #FFF
+            font-family font-medium
+            font-size 1rem
+            text-align center
+            margin-bottom 0
+        h1
+            color #FFF
+            font-family font-bold
+            font-size 3rem
+            text-align center
+            margin 0
+        h2
+            color #FFF
+            font-family font-semibold
+            font-size 1.2rem
+            text-align center
+            margin 0
+    .item2
+        background-color #000
+        height 11vh
+        display flex
+        flex-direction column
+        justify-content center
+        align-items center
+        padding 0 5%
+        h2
+            color #FFF
+            font-family font-bold
+            font-size 1.9rem
+            text-align center
+            margin 0
+    .item3
+        //background-image url(../images/Evento_slider.png)
+        background-position center
+        background-size cover
+        background-repeat no-repeat
+        height 38vh
+
+.sec15
+    margin 30px 0 40px
+    .content
+        display flex
+        flex-wrap wrap
+        justify-content center
+        position relative
+        margin-bottom 60px
+        .content_text
+            width 100%
+            display flex
+            flex-direction column
+            .text
+                margin 30px 0
+                p
+                    color #4D4D4D
+                    line-height 1.4
+                    text-align justify
+                    margin 0
+                    font-family font-medium
+                    font-size .9rem
+            .items_tab
+                box-shadow 0 8px 10px rgba(0, 0, 0, .45)
+                border-radius 10px
+                .navpill1
+                    background-color #006EB7
+                .navpill2
+                    background-color #EF7D00
+                .navpill3
+                    background-color #009640
+                ul.nav-pills
+                    justify-content space-between
+                    border-radius 11px 11px 0 0
+                    padding-bottom 1px
+                    li.nav-item
+                        margin-bottom -1px
+                        .navlink1
+                            background-color #006EB7
+                        .navlink2
+                            background-color #EF7D00
+                        .navlink3
+                            background-color #009640
+                        button.nav-link
+                            border-radius 10px 10px 0 0
+                            color #FFF
+                            font-size .9rem
+                            font-family font-bold
+                            padding-top 12px
+                            padding-bottom 12px
+                        button.active
+                            background-color #FFF
+                            color #000
+                .tab-content
+                    .tab-pane
+                        padding 30px 40px 35px
+                        p
+                            font-family font-medium
+                            font-size .8rem
+                            color #4D4D4D
+                            margin 0
+                            line-height 1.4
+                        ul
+                            li
+                                color #4D4D4D
+                        .zonas
+                            img
+                                width 100% !important
+                                height auto !important
+                        .promociones
+                            p
+                                text-align center
+                                img
+                                    width 60% !important
+                                    height auto !important
+                        .carta
+                            a
+                                background linear-gradient(91.55deg,#000 0%,#656565 100%)
+                                font-family font-bold
+                                color #FFF
+                                font-size .9rem
+                                text-decoration none
+                                padding 4px 30px 3px
+        .item_a
+            text-align center
+            margin 100px 0 20px
+            width 50%
+            height 150px
+            background-color #FFF
+            display flex
+            flex-wrap wrap
+            justify-content center
+            align-items center
+            .linecolor
+                width 100%
+                background-color #006EB7
+                height 55px
+            .line_a
+                width 60%
+                background-color #006EB7
+                height 40px
+                display flex
+                align-items center
+                justify-content center
+                a
+                    font-family font-bold
+                    font-size 1rem
+                    color #FFF
+                    text-decoration none
+                    display inline-block
+                    background linear-gradient(91.55deg, #000000 0%, #656565 100%)
+                    padding 4px 30px 3px
+                    border 3px solid #FFFFFF
+                    border-radius 15px
+                    position relative
+    .h2events1
+        color #006EB7
+    .h2events2
+        color #EF7D00
+    .h2events3
+        color #009640
+    .h2events
+        font-size 2rem
+        font-family font-bold
+        margin-bottom 50px
+        text-align center
+    .eventspage1
+        ul.slick-dots
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #006EB7
+    .eventspage2
+        ul.slick-dots
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #EF7D00
+    .eventspage3
+        ul.slick-dots
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #009640
+    .carousel-eventos-page
+        .item
+            display flex
+            flex-wrap wrap
+            flex-direction column
+            margin 0 40px 30px
+            text-align center
+            img
+                width 100%
+                margin-bottom 17px
+            .comprar1
+                background linear-gradient(91.55deg, #006EB7 0%, #44CCFD 100%)
+            .comprar2
+                background linear-gradient(91.55deg, #EF7D00 0%, #FFAF6D 100%)
+            .comprar3
+                background linear-gradient(91.55deg, #009640 0%, #92D050 100%)
+            .comprar
+                text-decoration none
+                font-family font-bold
+                color #FFF
+                font-size .9rem
+                border-radius 15px
+                
+                padding-top 6px
+                padding-bottom 5px
+        ul.slick-dots
+            li
+                margin 0 1px
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #E0E0E0
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+        .slick-prev
+            left -40px
+        .slick-next
+            right -40px
+        .slick-prev, .slick-next
+            width 40px
+            &:before
+                font-size 30px
+                color #CFCFCF
+                opacity .8
+    .back
+        text-align center
+        margin-top 40px
+        a
+            color rgba(0, 0, 0, 0.4)
+            font-family font-medium
+            font-size .9rem
+            text-decoration none
+            transition .5s all
+            &:hover
+                color rgba(0, 0, 0, .75)
+            img
+                height 19px
+                padding-right 16px
+
+.sec16
+    background-image url(../images/bg_talleres.jpg)
+    background-position center
+    background-size cover
+    background-repeat no-repeat
+    height 60vh
+    p
+        color #FFF
+        font-family font-medium
+        font-size 1rem
+        margin-top 28vh
+        text-align center
+        margin-bottom 0
+    h1
+        color #FFF
+        font-family font-bold
+        font-size 4rem
+        text-align center
+
+.sec17
+    .text_
+        position relative
+        padding 0
+        margin 60px 0
+        .line
+            position absolute
+            height 50px
+            background-color #E30613
+            top 0
+            left 0
+            bottom 0
+            margin auto
+            z-index -1
+            width 100%
+        .text
+            margin 0 20%
+            padding 0 40px
+            background-color #FFF
+            p
+                font-family font-medium
+                font-size .9rem
+                color #4D4D4D
+                line-height 1.4
+    .slider-for-talleres
+        margin-bottom 30px
+        .item
+            //background-image url(../images/Taller_slider.png)
+            background-position center
+            background-size cover
+            background-repeat no-repeat
+            height 320px
+            display flex
+            flex-wrap wrap
+            justify-content center
+            align-items center
+            h4
+                color #FFF
+                font-size 2rem
+                font-family font-bold
+    .slider-nav-talleres
+        margin 0 16%
+        .item
+            //background-image url(../images/Taller.png)
+            background-position center
+            background-size cover
+            background-repeat no-repeat
+            height 150px
+            display flex
+            flex-wrap wrap
+            justify-content center
+            align-items center
+            margin 0 10px 20px
+            h4
+                color #FFF
+                font-size 2rem
+                font-family font-bold
+        ul.slick-dots
+            li
+                margin 0 1px
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #E0E0E0
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #EF7D00
+        .slick-prev
+            left -55px
+        .slick-next
+            right -55px
+        .slick-prev, .slick-next
+            width 40px
+            &:before
+                font-size 30px
+                color #CFCFCF
+                opacity .8
+
+.sec18
+    margin 70px 0 40px
+    .line
+        position absolute
+        width 100%
+        top 0
+        left 0
+        height 80px
+        background-color #FFED00
+    .content
+        display flex
+        flex-wrap wrap
+        justify-content space-between
+        position relative
+        margin-bottom 70px
+        .image
+            width 33%
+            img
+                width 100%
+        .content_text
+            width 63%
+            display flex
+            flex-direction column
+            .content_header
+                display flex
+                flex-wrap wrap
+                justify-content space-between
+                align-items center
+                height 80px
+                h2
+                    color #000
+                    font-size 2rem
+                    font-family font-bold
+                    margin 0
+                a
+                    font-family font-bold
+                    font-size 1rem
+                    color #FFF
+                    text-decoration none
+                    display inline-block
+                    background linear-gradient(91.55deg, #000000 0%, #656565 100%)
+                    padding 4px 30px 3px
+                    border 3px solid #FFFFFF
+                    border-radius 15px
+            .text
+                margin 30px 0
+                p
+                    color #4D4D4D
+                    line-height 1.4
+                    text-align justify
+                    margin 0
+                    font-family font-medium
+                    font-size .9rem
+            .text_button
+                text-align center
+                margin-top 25px
+                a
+                    font-family font-bold
+                    font-size .9rem
+                    color #FFF
+                    background linear-gradient(91.55deg, #E30613 0%, #F85962 100%)
+                    padding 6px 50px 5px
+                    text-decoration none
+                    border-radius 15px
+            .items_tab
+                box-shadow 0 8px 10px rgba(0, 0, 0, .45)
+                border-radius 10px
+                ul.nav-pills
+                    justify-content flex-start
+                    border-radius 11px 11px 0 0
+                    padding-bottom 1px
+                    background-color #FFED00
+                    li.nav-item
+                        margin-bottom -1px
+                        margin-right 24px
+                        button.nav-link
+                            border-radius 10px 10px 0 0
+                            color #000
+                            font-size .9rem
+                            font-family font-bold
+                            padding-top 12px
+                            padding-bottom 12px
+                            background-color #FFED00
+                        button.active
+                            background-color #FFF
+                            color #000
+                .tab-content
+                    .tab-pane
+                        padding 30px 40px 35px
+                        p
+                            font-family font-medium
+                            font-size .8rem
+                            color #4D4D4D
+                            margin 0
+                            line-height 1.4
+                        ul
+                            li
+                                color #4D4D4D
+    .carousel-talleres
+        margin-bottom 55px
+        .item
+            margin 0 20px
+            img
+                width 100%
+        .slick-prev
+            position absolute !important
+            bottom -47px
+            top unset
+            right 35px
+            left 0
+            margin auto
+        .slick-next
+            position absolute !important
+            bottom -47px
+            top unset
+            left 0
+            right -35px
+            margin auto
+        .slick-prev, .slick-next
+            width 40px
+            &:before
+                font-size 30px
+                color #CFCFCF
+                opacity .8
+    .h2events1
+        color #006EB7
+    .h2events2
+        color #EF7D00
+    .h2events3
+        color #009640
+    .h2events
+        font-size 2rem
+        font-family font-bold
+        margin-bottom 50px
+        text-align center
+    .eventspage1
+        ul.slick-dots
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #006EB7
+    .eventspage2
+        ul.slick-dots
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #EF7D00
+    .eventspage3
+        ul.slick-dots
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #009640
+    .carousel-eventos-page
+        .item
+            display flex
+            flex-wrap wrap
+            flex-direction column
+            margin 0 40px 30px
+            text-align center
+            img
+                width 100%
+                margin-bottom 17px
+            .comprar1
+                background linear-gradient(91.55deg, #006EB7 0%, #44CCFD 100%)
+            .comprar2
+                background linear-gradient(91.55deg, #EF7D00 0%, #FFAF6D 100%)
+            .comprar3
+                background linear-gradient(91.55deg, #009640 0%, #92D050 100%)
+            .comprar
+                text-decoration none
+                font-family font-bold
+                color #FFF
+                font-size .9rem
+                border-radius 15px
+                
+                padding-top 6px
+                padding-bottom 5px
+        ul.slick-dots
+            li
+                margin 0 1px
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+                        color #E0E0E0
+            li.slick-active
+                button
+                    &:before
+                        opacity 1
+                        font-size 15px
+        .slick-prev
+            left -40px
+        .slick-next
+            right -40px
+        .slick-prev, .slick-next
+            width 40px
+            &:before
+                font-size 30px
+                color #CFCFCF
+                opacity .8
+
+.sec19
+    background-image url(../images/bg_contacto.jpg)
+    background-position center
+    background-size cover
+    background-repeat no-repeat
+    height 60vh
+    p
+        color #FFF
+        font-family font-medium
+        font-size 1rem
+        margin-top 28vh
+        text-align center
+        margin-bottom 0
+    h1
+        color #FFF
+        font-family font-bold
+        font-size 4rem
+        text-align center
+
+.sec20
+    padding 60px 0
+    .content
+        display flex
+        flex-wrap wrap
+        justify-content space-between
+        align-items flex-start
+        .map
+            width 40%
+            iframe
+                width 100% !important
+        .detail
+            width 57%
+            display flex
+            flex-wrap wrap
+            justify-content space-between
+            .contact_left
+                width 48%
+                background-color #2F2F2F
+                h3
+                    font-family font-bold
+                    font-size 1rem
+                    color #FFF
+                    background-color #EF7D00
+                    text-align center
+                    padding 9px 0
+                    margin 25px 0 30px
+                .items
+                    display flex
+                    flex-wrap wrap
+                    padding 0 33px 30px
+                    .item
+                        display flex
+                        align-items center
+                        margin-bottom 3px
+                        img
+                            width 18px
+                            margin-right 8px
+                        p
+                            font-size .8rem
+                            margin 0
+                            color #FFF
+            .contact_right
+                width 48%
+                background-color #2F2F2F
+                h3
+                    font-family font-bold
+                    font-size 1rem
+                    color #FFF
+                    background-color #009640
+                    text-align center
+                    padding 9px 0
+                    margin 25px 0 30px
+                .items
+                    display flex
+                    align-items center
+                    flex-direction column
+                    margin-bottom 15px
+                    p
+                        text-align center
+                        font-size .8rem
+                        line-height 1.4
+                        color #FFF
+                        strong
+                            font-family font-bold
+            .formu
+                width 100%
+                margin-top 30px
+                p
+                    font-family font-bold
+                    font-size 1rem
+                    color #000
+                    text-align center
+                form
+                    display flex
+                    flex-wrap wrap
+                    justify-content space-between
+                    label
+                        font-size .7rem
+                        padding .75rem 0.75rem
+                    .form-control
+                        &:focus
+                            padding-bottom 1rem
+                            box-shadow none
+                    input, textarea, select
+                        font-size .75rem
+                        height 40px
+                        background-color #FFF
+                        color #6A6B6A
+                        border-radius 12px
+                    textarea
+                        height 264px
+                    .form_left
+                        width 48%
+                    .form_right
+                        width 48%
+                    .form_button
+                        width 100%
+                        text-align center
+                        margin-top 30px
+                        button
+                            padding 7px 100px 6px
+                            font-family font-semibold
+                            color #FFF
+                            font-size .8rem
+                            background-color #E30613
+                            border 0
+                            border-radius 12px
+
+.sec21
+    background-image url(../images/bg_blog.jpg)
+    background-position center
+    background-size cover
+    background-repeat no-repeat
+    height 60vh
+    p
+        color #FFF
+        font-family font-medium
+        font-size 1rem
+        margin-top 28vh
+        text-align center
+        margin-bottom 0
+    h1
+        color #FFF
+        font-family font-bold
+        font-size 4rem
+        text-align center
+
+.sec22
+    padding-bottom 40px
+    .text_
+        position relative
+        padding 0
+        margin 60px 0
+        .line
+            position absolute
+            height 50px
+            background-color #009640
+            top 0
+            left 0
+            bottom 0
+            margin auto
+            z-index -1
+            width 100%
+        .text
+            margin 0 20%
+            padding 0 40px
+            background-color #FFF
+            p
+                font-family font-medium
+                font-size .9rem
+                color #4D4D4D
+                line-height 1.4
+    .items
+        display flex
+        flex-wrap wrap
+        margin 0 20%
+        .item
+            width 100%
+            display flex
+            flex-wrap wrap
+            margin-bottom 40px
+            .item_left
+                width 35%
+                img
+                    width 100%
+            .item_right
+                width 65%
+                background #FFFFFF
+                box-shadow 0px 4px 20px rgba(0, 0, 0, 0.15)
+                border-radius 0px 25px 25px 0px
+                display flex
+                flex-wrap wrap
+                flex-direction column
+                justify-content space-between
+                padding 30px 25px 15px
+                .item_header
+                    padding-right 15%
+                    h3
+                        color #E30613
+                        font-family font-bold
+                        font-size .95rem
+                    .detail
+                        p
+                            color #000
+                            font-size .85rem
+                            line-height 1.4
+                            text-align justify
+                            margin-bottom 13px
+                .item_footer
+                    display flex
+                    flex-wrap wrap
+                    flex-direction row
+                    justify-content space-between
+                    align-items flex-end
+                    a
+                        font-family font-bold
+                        color #253238
+                        background-color #FFED00
+                        font-size .8rem
+                        text-decoration none
+                        padding 5px 40px 4px
+                        border-radius 4px
+                        transition .5s all
+                    p
+                        color #C2C2C2
+                        font-size .6rem
+                        text-align center
+                        margin 0
+
+.sec23
+    margin-top 13vh
+    .item1
+        background-image url(../images/bg_post.png)
+        background-position center
+        background-size cover
+        background-repeat no-repeat
+        height 38vh
+        display flex
+        flex-direction column
+        justify-content center
+        align-items center
+        p
+            color #FFF
+            font-family font-medium
+            font-size 1rem
+            text-align center
+            margin-bottom 0
+        h1
+            color #FFF
+            font-family font-bold
+            font-size 3rem
+            text-align center
+            margin 0
+    .item2
+        background-color #000
+        height 11vh
+        display flex
+        flex-direction column
+        justify-content center
+        align-items center
+        padding 0 20px
+        h2
+            color #FFF
+            font-family font-bold
+            font-size 1.4rem
+            text-align center
+            margin 0
+    .item3
+        //background-image url(../images/Evento_slider.png)
+        background-position center
+        background-size cover
+        background-repeat no-repeat
+        height 38vh
+
+.sec24
+    .description
+        margin-top 50px
+        p
+            color #000
+            font-size 1rem
+            line-height 1.4
+            text-align justify
+
+.sec25
+    background-image url(../images/bg_profile.png)
+    background-position center
+    background-size cover
+    background-repeat no-repeat
+    margin-top 13vh
+    .text
+        padding 50px 0
+        p
+            font-family font-medium
+            font-size .8rem
+            color #FFF
+            margin 0
+            text-decoration underline
+        h2
+            color #FFF
+            font-size 2.5rem
+            font-family font-bold
+
+.sec26
+    .content
+        display flex
+        flex-wrap wrap
+        .content_left
+            width 20%
+            background-color #000
+            ul
+                list-style-type none
+                height 85vh
+                padding-top 50px
+                li
+                    margin-bottom 60px
+                    a
+                        color #fff
+                        font-family font-medium
+                        font-size 1rem
+                        text-decoration none
+                        i
+                            padding-right 6px
+                .active
+                    background-color #FFF
+                    padding 20px 0 20px 10px
+                    border-top-left-radius 9px
+                    border-bottom-left-radius 9px
+                    a
+                        color #000
+        .content_right
+            padding-left 30px
+            width 70%
+    .tit_profile
+        background-color #FFED00
+        width 100%
+        padding 8px 15px
+        position relative
+        height 40px
+        border-radius 12px 12px 0 0
+        margin 20px 0 40px
+        h3
+            font-family font-bold
+            color #000
+            font-size 1rem
+            margin 0
+            background-color #FFF
+            padding: 0px 50px
+            position absolute
+            top 0
+            left 20px
+            height 100%
+            display flex
+            align-items center
+            border-radius 12px 12px 0 0
+    .items
+        width 100%
+        display flex
+        flex-wrap wrap
+        .item1
+            width 40%
+        .item2
+            width 40%
+        .item3
+            width 20%
+            label#choose-file-label
+                background-color #006EB7
+                color #FFF
+                font-family font-semibold
+                font-size .9rem
+                padding 6px 15px
+                border-radius 12px
+                word-break break-word
+                width 100%
+                cursor pointer
+            .avatar_photo
+                text-align center
+                margin-top 20px
+                img
+                    width 90%
+        .item4
+            width 100%
+        .item
+            padding 0 15px
+            .form-group
+                margin-bottom 15px
+                label.input-label
+                    color #006EB7
+                    font-family font-bold
+                    font-size .9rem
+                    padding-left .75rem
+                input[type=text], input[type=password], input[type=date], select
+                    color rgba(106, 107, 106, 0.6);
+                    font-family font-semibold
+                    font-size .9rem
+                    background-color #FFFFFF
+                    box-shadow 0px 0px 6px rgba(0, 0, 0, 0.4)
+                    border-radius 12px
+                select
+                    background-image url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E") !important
+                    background-position right 0.75rem center !important
+                    background-repeat no-repeat !important
+                    background-size 16px 12px !important
+                select[name=type_document]
+                    margin-right 13px
+                .form-control:disabled, .form-control[readonly]
+                    background-color #e9ecef !important
+                    cursor not-allowed
+                ::placeholder
+                    color rgba(106, 107, 106, 0.3);
+                    font-family font-semibold
+                    font-size .9rem
+            .btn-submit
+                font-family font-semibold
+                color #FFF
+                background-color #E30613
+                font-size .9rem
+                padding 4px 40px 3px
+                border-radius 12px
+                margin-top 20px
+    .tit_membership
+        background-color #E30613
+        width 100%
+        padding 8px 15px
+        position relative
+        height 40px
+        border-radius 12px 12px 0 0
+        margin 20px 0 40px
+        h3
+            font-family font-bold
+            color #000
+            font-size 1rem
+            margin 0
+            background-color #FFF
+            padding: 0px 50px
+            position absolute
+            top 0
+            left 20px
+            height 100%
+            display flex
+            align-items center
+            border-radius 12px 12px 0 0
+    .membership
+        p
+            line-height 1.3
+            margin-bottom 6px
+            color #000
+            span
+                font-family font-medium
+        h4
+            color #000
+            font-size .9rem
+            font-family font-semibold
+    .tit_workshops
+        background-color #009640
+        width 100%
+        padding 8px 15px
+        position relative
+        height 40px
+        border-radius 12px 12px 0 0
+        margin 20px 0 40px
+        h3
+            font-family font-bold
+            color #000
+            font-size 1rem
+            margin 0
+            background-color #FFF
+            padding: 0px 50px
+            position absolute
+            top 0
+            left 20px
+            height 100%
+            display flex
+            align-items center
+            border-radius 12px 12px 0 0
+    .tickets
+        display flex
+        flex-wrap wrap
+        width 100%
+        .ticket
+            width 100%
+            .tit
+                width 100%
+                border-bottom 1px solid #C4C4C4
+                p
+                    font-family font-medium
+                    color #000
+                    font-size .9rem
+                    margin 0
+                    line-height 1.3
+                    span
+                        font-family font-semibold
+                        font-style italic
+            table
+                width 100%
+                thead
+                    .t1
+                        text-align left !important
+                    tr
+                        text-align center
+                        th
+                            color rgba(0, 0, 0, .4)
+                            font-family font-medium
+                            font-size .7rem
+                tbody
+                    .t1
+                        text-align left !important
+                    tr
+                        td
+                            text-align center
+                            a
+                                color #006EB7
+                                font-family font-semibold
+                                font-size .8rem
+                                text-decoration none
+                            p
+                                color #000
+                                font-size .8rem
+                                margin 0
+                                line-height 1.3
+
+.sec28
+    margin-top 50px
+    .content
+        display flex
+        flex-wrap wrap
+        justify-content space-between
+        position relative
+        margin-bottom 60px
+        .content_left
+            width 49%
+            h2
+                color #FFF
+                font-family font-bold
+                font-size 1.4rem
+                text-align center
+                background-color #EF7D00
+                padding 25px 15px
+            .description
+                margin-top 25px
+                p
+                    line-height 1.4
+                    font-family font-medium
+                    font-size .8rem
+                    text-align justify
+            .button_contact
+                text-align center
+                p
+                    line-height 1.4
+                    font-family font-medium
+                    font-size .8rem
+                    text-align center
+                a
+                    background linear-gradient(91.55deg, #009640 0%, #9AE8BB 100%)
+                    font-family font-bold
+                    color #FFF
+                    font-size .8rem
+                    text-decoration none
+                    border-radius 15px
+                    padding 5px 30px
+        .content_right
+            width 49%
+            .slider-for-event-buy
+                margin-bottom 20px
+                .item
+                    padding 0 25px
+                    img
+                        width 100%
+                .slick-prev
+                    left 25px
+                .slick-next
+                    right 25px
+                .slick-prev, .slick-next
+                    width 40px
+                    z-index 1
+                    &:before
+                        font-size 30px
+                        color #fff
+                        opacity .9
+            .slider-nav-event-buy
+                .item
+                    padding 0 25px
+                    img
+                        width 100%
+    .map
+        h2
+            font-family font-bold
+            color #000
+            font-size 1.2rem
+            text-align center
+            margin-bottom 25px
+        p
+            font-family font-semibold
+            color #D3D3D3
+            font-size .8rem
+            text-align center
+    .stages
+        margin 70px 0 40px
+        display flex
+        flex-wrap wrap
+        justify-content center
+        .zone
+            display flex
+            flex-wrap wrap
+            flex-direction column
+            .zone_row
+                display inline-flex
+                margin-bottom 20px
+                .zone_aymara
+                    background rgba(0, 176, 240, .4)
+                .zone_quechua
+                    background rgba(226, 107, 10, .4)
+                .zone_uros
+                    background rgba(146, 208, 80, .4)
+                .zone_detail
+                    margin 0 10px 10px
+                    display flex
+                    flex-wrap wrap
+                    justify-content space-between
+                    align-items center
+                    width 252px
+                    border-radius 6px
+                    h4
+                        color #000
+                        font-family font-bold
+                        font-size .9rem
+                        margin-bottom 0px
+                    p
+                        margin 0
+                        color #000
+                        font-family font-bold
+                        font-size .8rem
+                        padding 6px 6px
+                    .circle_pending
+                        height 20px
+                        width 20px
+                        border-radius 50%
+                        margin-right 10px
+                .table_zone
+                    padding 2px
+                    border-radius 6px
+                    margin 0 10px
+                    column-gap 0px
+                    position relative
+                    .seat
+                        width 20px
+                        height 20px
+                        display flex
+                        justify-content center
+                        align-items center
+                        padding 2px
+                        .circle
+                            background-color #F4F4F4
+                            border-radius 50%
+                            height 100%
+                            width 100%
+                            cursor pointer
+                        .pending
+                            background-color rgba(255, 193, 7, 1)
+                            cursor not-allowed
+                    span
+                        margin 0
+                        position absolute
+                        top -.9rem
+                        left 0
+                        right 0
+                        display flex
+                        justify-content center
+                        color #3A3A3A
+                        font-size .6rem
+                        font-family font-semibold
+        .main
+            display flex
+            flex-wrap wrap
+            justify-content center
+            width 300px
+            height 300px
+            margin 0 10px
+            .stage
+                width 85%
+                height 44px
+                margin-bottom 20px
+                background-color #9B4F11
+                border-radius 6px
+                display flex
+                justify-content center
+                align-items center
+                p
+                    margin 0
+                    color rgba(255, 255, 255, 0.4)
+                    font-family font-bold
+                    font-size .8rem
+            .dance_stage
+                width 100%
+                height 236px
+                background-color #E9E9E9
+                border-radius 6px
+                display flex
+                justify-content center
+                align-items center
+                margin-bottom 20px
+                p
+                    color rgba(0, 0, 0, 0.4)
+                    font-family font-bold
+                    font-size .8rem
+                    margin 0
+
+.sec29
+    margin-top 13vh
+    .item1
+        background-image url(../images/bg_evento.jpg)
+        background-position center
+        background-size cover
+        background-repeat no-repeat
+        height 25vh
+    .item2
+        background linear-gradient(90.69deg, #E30613 0%, #006EB7 100%)
+        display flex
+        flex-direction column
+        justify-content center
+        align-items center
+        padding 15px 5%
+        p
+            margin 0
+            color #FFF
+            font-family font-bold
+            font-size 1.7rem
+
+.sec30
+    .cart
+        margin-top 30px
+        h1
+            color #E30613
+            font-family font-bold
+            font-size 1.6rem
+            text-align center
+            margin-bottom 20px
+        form
+            label
+                color #006EB7
+                font-family font-bold
+                font-size .9rem
+            input, select
+                background #FFFFFF
+                box-shadow 0px 0px 6px rgba(0, 0, 0, 0.4)
+                border-radius 12px
+                color #6A6B6A
+                font-size .9rem
+                font-family font-medium
+                border unset
+                &:hover, &:focus
+                    border unset
+        .btn-submit
+            background-color #E30613
+            border-radius 10px
+            color #FFF
+            padding 5px 30px
+            display block
+            margin auto
+            font-family font-medium
+            margin-bottom 20px
+        table.cart_table
+            thead
+                tr
+                    th
+                        font-family font-medium
+                        color rgba(0, 0, 0, .4)
+                        text-align center
+                    th.product, th.type, th.zone, th.date
+                        text-align left
+            tbody
+                tr
+                    td
+                        vertical-align middle
+                        font-size .9rem
+                        padding .3rem
+                        p
+                            margin 0
+                        .item_product
+                            a
+                                margin 0
+                                line-height 1.3
+                                font-size .9rem
+                                color #006EB7
+                                font-family font-medium
+                                text-decoration none
+                        .delete
+                            font-size 1.1rem
+                            color #e3342f
+            tfoot
+                tr
+                    td
+                        font-family font-bold
+
+.sec31
+    margin-top 13vh
+    .content
+        display flex
+        flex-wrap wrap
+        .content_left
+            width 50%
+            img
+                width 100%
+        .content_right
+            width 50%
+            padding 60px 13% 60px 100px
+            p.tit_small
+                color #9F9F9F
+                font-family font-medium
+                text-decoration underline
+                font-size .8rem
+                text-align center
+                margin 0
+                line-height 1
+            p.tit
+                color #006EB7
+                font-family font-bold
+                font-size 2rem
+                text-align center
+            p.tit2
+                color #000
+                font-size .9rem
+                font-family font-medium
+                line-height 1.3
+                margin-bottom 25px
+                text-align center
+            a
+                font-size .8rem
+                color #FFF
+                font-family font-semibold
+                background-color #009640
+                padding 5px 30px
+                text-decoration none
+                border-radius 12px
+
+.sec65
+    padding-top 50px
+    padding-bottom 40px
+    .cart-right
+        .content
+            background-color #eff0f4
+            padding 40px 20px 20px 20px
+            .details
+                margin-bottom 25px
+                h2
+                    color #061d38
+                    font-family font-bold
+                    font-size 1.4rem
+                    margin-bottom 30px
+                    text-align center
+                p
+                    font-size 1.1rem
+                    line-height 1.3
+                    color #061d38
+                    font-family font-medium
+                    margin 6px
+                    span
+                        font-family font-regular
+                .p1
+                    font-family font-semibold
+                    margin-bottom 15px
+            .items
+                border-bottom 3px solid #061d38
+                border-top 3px solid #061d38
+                padding-bottom 10px
+                .item
+                    display flex
+                    flex-wrap wrap
+                    justify-content space-between
+                    margin 25px 0
+                    position relative
+                    #delete_product_cart
+                        position absolute
+                        top -8px
+                        right 0
+                        i
+                            color #e3342f
+                    .detail-left
+                        display flex
+                        align-items center
+                        width 80%
+                        .image
+                            margin-right 10px
+                            img
+                                height 80px
+                        .name
+                            h3
+                                font-family font-bold
+                                color #000000
+                                font-size 1.1rem
+                                margin-bottom 0px
+                                text-transform uppercase
+                            p
+                                font-family font-light
+                                font-size .9rem
+                                color #000000
+                                line-height 1.3
+                                margin 0
+                    .detail-right
+                        display flex
+                        justify-content flex-end
+                        align-items center
+                        width 18%
+                        .price
+                            text-align right
+                            .price-before
+                                font-family font-light
+                                font-size .7rem
+                                text-decoration line-through
+                            .price-now
+                                font-family font-light
+                                font-size 1rem
+                    .empty_cart
+                        text-align center
+                        width 100%
+                        i
+                            font-size 2.5rem
+                            color #000
+                        p
+                            font-size 1rem
+                            color #000
+            .subtotal
+                padding 20px 0 15px
+                border-bottom 3px solid #061d38
+                .item
+                    display flex
+                    justify-content space-between
+                    margin-bottom 7px
+                    p
+                        color #000
+                        margin 0
+                        font-size 1rem
+                        font-family font-semibold
+                    div.envios
+                        color #000
+                        margin 0
+                        font-size .9rem
+                        display flex
+                        line-height 1
+                        align-items center
+                        .signo
+                            cursor pointer
+                            color #FFF
+                            background-color #061d38
+                            height 18px
+                            width 18px
+                            border-radius 50%
+                            margin-left 8px
+                            display flex
+                            align-items center
+                            justify-content center
+            .total
+                padding-top 20px
+                .price
+                    display flex
+                    justify-content space-between
+                    align-items center
+                    .price-left
+                        p
+                            color #000
+                            margin 0
+                            &:first-child
+                                font-size .9rem
+                            &:last-child
+                                font-size .7rem
+                        p.p_total
+                            font-size 1rem
+                    .price-right
+                        font-size 1.3rem
+                        color #000
+                        font-family font-medium
+                .btn-pagar
+                    color #000
+                    background-color #ffce7b
+                    padding 10px 60px
+                    font-family font-medium
+                    font-size 1.1rem
+                    margin 17px 0 30px
+    .back
+        margin-top 30px
+        a
+            font-family font-medium
+            color #061d38
+            font-size 1rem
+            text-decoration none
+
+
+.footer
+    background linear-gradient(95.95deg, #000000 10.06%, #006EB7 100%)
+    padding 55px 0
+    .content_
+        display flex
+        flex-wrap wrap
+        flex-direction row
+        justify-content space-between
+        width 100%
+        .item1
+            width 40%
+            position relative
+            display flex
+            align-items flex-start
+            flex-direction column
+            justify-content center
+            img
+                height 90px
+            p
+                font-family font-medium
+                font-size .7rem
+                color #FFF
+                margin 20px 0 0
+        .item2
+            width 45%
+            display flex
+            flex-wrap wrap
+            ul.ul1
+                width 50%
+                list-style-type none
+                margin 0
+                padding 0
+                li
+                    margin-bottom 10px
+                    a
+                        text-decoration none
+                        color #FFF
+                        font-family font-medium
+                        font-size .8rem
+            ul.ul2
+                width 50%
+                list-style-type none
+                margin 0
+                padding 0
+                li
+                    margin-bottom 10px
+                    a
+                        text-decoration none
+                        color #FFF
+                        font-family font-medium
+                        font-size .8rem
+            .subscribe
+                width 80%
+                margin-top 20px
+                p
+                    font-size .7rem
+                    color #FFF
+                    margin-bottom 9px
+                    font-family font-medium
+                form
+                    display flex
+                    ::placeholder
+                        color #C1C1C1
+                        font-size .8rem
+                        font-family font-medium
+                    input[type=email]
+                        color #C1C1C1
+                        font-size .8rem
+                        font-family font-medium
+                        padding-left 20px
+                        border-radius 20px
+                        border 0
+                        &:focus
+                            box-shadow none !important
+                    input[type=submit]
+                        background-color #000
+                        font-family font-bold
+                        font-size .8rem
+                        color #FFF
+                        border-radius 20px
+                        padding 1px 23px
+                        margin-left -30px
+        .item3
+            width 10%
+            text-align center
+            padding 0 35px
+            .redes
+                display flex
+                flex-wrap wrap
+                flex-direction column
+                margin-bottom 7px
+                a
+                    margin-bottom 25px
+                    img
+                        width 16px
+            p
+                color #FFF
+                font-size .8rem
+                margin 0
+
+
+
+@media screen and (max-width: 1024px)
+
+    .loading
+        position fixed
+        top 0
+        width 100vw
+        height 100vh
+        background rgb(0,0,0,1)
+        display flex
+        justify-content center
+        align-items center
+        z-index 9999999999999999
+        #loader
+            margin-top 90px
+            margin-left 90px
+            border 2px #3F3F3F solid
+            border-radius 50%
+            border-top-color #FF616A
+            width 90px
+            height 90px
+            animation spin 1s linear infinite
+            z-index 9999
+            @keyframes spin
+                from
+                    transform translate(-50%, -50%) rotate(0deg)
+                to
+                    transform translate(-50%, -50%) rotate(360deg)
+
+    #header //header
+        background rgba(0, 0, 0, .3)
+        height 13vh
+        position fixed
+        z-index 9
+        width 100%
+        top 0
+        display flex
+        align-items center
+        z-index 999
+        transition .3s all
+        .left-menu
+            img.img-logo
+                height 100%
+        .right-menu
+            display flex
+            justify-content flex-end
+            align-items center
+            ul
+                display flex
+                flex-wrap wrap
+                align-items center
+                margin 0
+                list-style-type none
+                padding 0
+                li
+                    padding-right 8px
+                    a.cart_a
+                        text-decoration none
+                        img.cart
+                            height 30px
+                    a.user_a
+                        display flex
+                        align-items center
+                        text-decoration none
+                        .user
+                            height 20px
+                            width 20px
+                            background-color #FFF
+                            border-radius 50%
+                            display flex
+                            align-items center
+                            justify-content center
+                            margin-right 8px
+                            img
+                                height 14px
+                        p
+                            margin 0
+                            font-size 1rem
+                            font-family font-bold
+                            color #FFF
+            .burger0
+                float right
+                display block
+                cursor pointer
+                color #00AC67
+                .linea1, .linea2, .linea3
+                    width 40px
+                    height 4px
+                    background-color #FFF
+                    margin 5px
+                    transition all .3s ease
+                .linea2
+                    width 36px
+                .linea3
+                    width 25px
+            .toggle1
+                transform rotate(-45deg) translate(-6.5px,6.5px)
+            .toggle2
+                opacity 0
+            .toggle3
+                transform rotate(45deg) translate(-5.5px,-6.5px)
+        .fondo-active
+            background rgba(0, 0, 0, .7) !important
+            display block !important
+        .fondo
+            background rgba(0, 0, 0, 0)
+            position fixed
+            display none
+            height 100%
+            width 100%
+            top 0
+            left 0
+            z-index 9
+            transition transform .3s ease-in
+        .nav-mobile-active
+            transform translateX(0%) !important
+        .nav-mobile
+            display block
+            position fixed
+            top 0
+            right 0
+            background #171717
+            height 100vh
+            width 100%
+            z-index 9999999999
+            padding 100px 60px 30px 30px
+            transform translateX(100%)
+            transition transform .3s ease-in
+            z-index 10
+            .lists
+                display flex
+                flex-direction column
+                height 80vh
+                justify-content space-between
+                text-align right
+                ul
+                    list-style none
+                    padding-left 15px
+                    li
+                        padding-bottom 18px
+                        a
+                            text-decoration none
+                            color #fff
+                            font-size 1.2rem
+                            font-family font-bold
+                            transition .3s all
+                            text-transform uppercase
+                            &:hover
+                                color #FFED00
+                        .active
+                            color #FFED00
+                .bottom_
+                    display flex
+                    flex-wrap wrap
+                    flex-direction column
+                    align-items center
+                    padding-left 30px
+                    .btn1
+                        background linear-gradient(91.55deg, #EF7D00 0%, #FFB171 100%)
+                    .btn2
+                        background linear-gradient(91.55deg, #006EB7 0%, #44CCFD 100%)
+                    .btn3
+                        background linear-gradient(91.55deg, #009640 0%, #92D050 100%)
+                    .btn4
+                        background linear-gradient(91.55deg, #E30613 0%, #F85962 100%)
+                    a
+                        border 3px solid #fff
+                        border-radius 15px
+                        width 100%
+                        text-align center
+                        color #FFFF
+                        font-size 1.0rem
+                        font-family font-bold
+                        text-decoration none
+                        padding 5px 0 4px
+                        margin-bottom 18px
+                    img
+                        height 70px
+            .burger
+                position absolute
+                top 20px
+                right 60px
+                cursor pointer
+                .linea1, .linea2, .linea3
+                    width 20px
+                    height 4px
+                    background-color #FFF
+                    margin 5px
+                    transition all .3s ease
+                .toggle1
+                    transform rotate(-45deg) translate(-7px, 7px)
+                .toggle2
+                    opacity 0
+                .toggle3
+                    transform rotate(45deg) translate(-5.5px, -6.5px)
+
+    #loginModal
+        .modal-content
+            border-radius 30px
+            #modal_forgot
+                display none
+            #modal_login
+                position relative
+                display flex
+                flex-direction column
+                justify-content center
+                align-items center
+                padding-bottom 30px
+                padding-top 20px
+                #alert_login, #alert_login_success
+                    width 90%
+                    padding-top 10px
+                    padding-bottom 10px
+                    position relative
+                    .btn-close
+                        top 15px
+                        right 10px
+                        padding 0
+                        &:focus
+                            box-shadow none
+                .close
+                    position absolute
+                    top 15px
+                    right 15px
+                    &:focus
+                        box-shadow none
+                img
+                    height 150px
+                    width fit-content
+                    margin-bottom 8px
+                h3
+                    color #EF7D00
+                    font-family font-bold
+                    font-size 1.5rem
+                    text-align center
+                    margin-bottom 18px
+                p
+                    font-family font-semibold
+                    color #C4C4C4
+                    font-size .9rem
+                    margin-top 20px
+                    margin-bottom 0
+                form
+                    display flex
+                    flex-direction column
+                    width 100%
+                    align-items center
+                    padding 0 5%
+                    input
+                        box-shadow 0px 4px 15px rgba(0, 0, 0, 0.1)
+                        color #D2D2D2
+                        font-size .9rem
+                        background #FFF
+                        border-radius 15px
+                        border 0
+                        margin-bottom 20px
+                        &:focus
+                            box-shadow 0px 4px 15px rgba(0, 0, 0, 0.1)
+                            border 0
+                    a
+                        color #006EB7
+                        font-family font-light
+                        font-size .9rem
+                        text-decoration none
+                    ::placeholder
+                        color #D2D2D2
+                        font-size .9rem
+                    button
+                        margin-top 70px
+                        width 100%
+                        background #006EB7
+                        box-shadow 0px 4px 10px rgba(0, 110, 183, 0.35)
+                        border-radius 15px
+                        border 0
+                        font-family font-bold
+                        color #FFF
+                        padding-top 9px
+                        padding-bottom 8px
+            #modal_forgot
+                position relative
+                display none
+                flex-direction column
+                justify-content center
+                align-items center
+                padding-bottom 30px
+                padding-top 20px
+                .close
+                    position absolute
+                    top 15px
+                    right 15px
+                    &:focus
+                        box-shadow none
+                img
+                    height 150px
+                    width fit-content
+                    margin-bottom 8px
+                h3
+                    color #009640
+                    font-family font-bold
+                    font-size 1.5rem
+                    text-align center
+                    margin-bottom 18px
+                p.tit
+                    font-family font-light
+                    text-align center
+                    padding 0 10%
+                    color #000
+                    font-size .8rem
+                    margin-bottom 25px
+                    line-height 1.4
+                p.copyright
+                    font-family font-semibold
+                    color #C4C4C4
+                    font-size .9rem
+                    margin-top 20px
+                    margin-bottom 0
+                a
+                    color #006EB7
+                    font-family font-light
+                    font-size .9rem
+                    text-decoration none
+                    margin-top 14px
+                form
+                    display flex
+                    flex-direction column
+                    width 100%
+                    align-items center
+                    padding 0 10%
+                    input
+                        box-shadow 0px 4px 15px rgba(0, 0, 0, 0.1)
+                        color #D2D2D2
+                        font-size .9rem
+                        background #FFF
+                        border-radius 15px
+                        border 0
+                        margin-bottom 20px
+                        &:focus
+                            box-shadow 0px 4px 15px rgba(0, 0, 0, 0.1)
+                            border 0
+                    ::placeholder
+                        color #D2D2D2
+                        font-size .9rem
+                    button
+                        margin-top 30px
+                        width 100%
+                        background #EF7D00
+                        box-shadow 0px 4px 10px rgba(239, 125, 0, 0.35)
+                        border-radius 15px
+                        border 0
+                        font-family font-bold
+                        color #FFF
+                        padding-top 9px
+                        padding-bottom 8px
+
+    .login_create
+        margin-top 13vh
+        .content
+            display flex
+            flex-wrap wrap
+            .content_left
+                display none
+                width 50%
+                background-image url(../images/fondo_login_create.png)
+                background-position center
+                background-size cover
+                background-repeat no-repeat
+            .content_right
+                width 100%
+                padding 60px 5%
+                p.tit_small
+                    color #9F9F9F
+                    font-family font-medium
+                    text-decoration underline
+                    font-size .8rem
+                    text-align center
+                    margin 0
+                    line-height 1
+                p.tit
+                    color #E30613
+                    font-family font-bold
+                    font-size 2rem
+                    text-align center
+                form
+                    .form-group
+                        margin-bottom 15px
+                        label.input-label
+                            color #006EB7
+                            font-family font-bold
+                            font-size .9rem
+                            padding-left .75rem
+                        input[type=text], input[type=password], input[type=date], select
+                            color rgba(106, 107, 106, 0.3);
+                            font-family font-semibold
+                            font-size .9rem
+                            background-color #FFFFFF
+                            box-shadow 0px 0px 6px rgba(0, 0, 0, 0.4)
+                            border-radius 12px
+                        select
+                            background-image url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E") !important
+                            background-position right 0.75rem center !important
+                            background-repeat no-repeat !important
+                            background-size 16px 12px !important
+                        ::placeholder
+                            color rgba(106, 107, 106, 0.3);
+                            font-family font-semibold
+                            font-size .9rem
+                        .btn-submit
+                            font-family font-semibold
+                            color #FFF
+                            background-color #E30613
+                            font-size .9rem
+                            padding 4px 40px 3px
+                            border-radius 12px
+                            margin-top 30px
+                    .first-check
+                        margin-top 20px
+                    .form-check
+                        padding-left 2.5rem
+                        label
+                            font-family font-medium
+                            color #717171
+                            font-size .8rem
+                            line-height 1.3
+                            a
+                                color #E30613
+                                text-decoration none
+                        input
+                            border-color #EF7D00
+                            border-radius 50%
+                            &:checked
+                                background-color #EF7D00
+                            &:focus
+                                box-shadow unset
+                        
+
+    .sec1
+        .carousel-slider
+            position relative
+            margin-bottom 0 !important
+            .item
+                height 80vh
+                background-position center
+                background-size cover
+                background-repeat no-repeat
+                position relative
+                .text
+                    position absolute
+                    bottom 20%
+                    left unset
+                    width 100%
+                    text-align center
+                    padding 0 5%
+                    p
+                        font-size 1.8rem
+                        color #FFF
+                        font-family font-bold
+                        margin 0
+                        line-height 1.4
+                        text-align left
+                        &:nth-child(2)
+                            margin-bottom 20px
+                    a
+                        background linear-gradient(91.55deg, #E30613 0%, #F85962 100%)
+                        border 3px solid #FFFFFF
+                        border-radius 15px
+                        text-decoration none
+                        color #FFF
+                        font-size 1rem
+                        font-family font-bold
+                        padding 4px 70px 3px
+                        transition .5s all
+                        display inline-block
+                        &:hover
+                            transform scale(1.1)
+            ul.slick-dots
+                position absolute
+                bottom 17px
+                li
+                    button
+                        &:before
+                            opacity 1
+                            font-size 20px
+                            color rgba(255, 255, 255, .3)
+                li.slick-active
+                    button
+                        &:before
+                            opacity 1
+                            font-size 20px
+                            color #FF616A
+            .slick-prev, .slick-next
+                display none !important
+
+    .sec2
+        padding 50px 0
+        .title
+            background-color #EF7D00
+            width 100%
+            h2
+                color #FFF
+                font-size 1.5rem
+                font-family font-bold
+                padding 20px 20px 20px
+                text-align center
+        .c2c_a
+            text-align center
+            padding-top 25px
+            a
+                color #FFF
+                font-size 1rem
+                font-family font-bold
+                background linear-gradient(91.55deg, #E30613 0%, #F85962 100%)
+                border-radius 15px
+                padding 4px 70px 3px
+                text-decoration none
+                transition .5s all
+                display inline-block
+                &:hover
+                    transform scale(1.1)
+        .carousel-eventos
+            .item
+                display flex
+                flex-wrap wrap
+                justify-content space-between
+                margin-top 50px
+                margin-bottom 20px
+                padding 0 15px
+                .image
+                    width 100%
+                    img
+                        width 100%
+                .text
+                    width 100%
+                    margin-top 15px
+                    .text_title
+                        display flex
+                        flex-wrap wrap
+                        justify-content space-between
+                        align-items center
+                        margin-bottom 30px
+                        h3
+                            color #000
+                            font-size 1.2rem
+                            font-family font-bold
+                            position relative
+                            &:after
+                                content ''
+                                width 100%
+                                height 10px
+                                background-color #EF7D00
+                                position absolute
+                                bottom -12px
+                                left 0
+                        a
+                            background linear-gradient(91.55deg, #009640 0%, #9AE8BB 100%)
+                            border-radius 15px
+                            text-decoration none
+                            color #FFF
+                            font-size 1rem
+                            font-family font-bold
+                            padding 7px 35px 6px
+                            margin-top 25px
+                    .text_description
+                        p
+                            font-size .9rem
+                            color #4D4D4D
+                            line-height 1.4
+                            font-family font-medium
+                            text-align justify
+                    .text_buttons
+                        display flex
+                        flex-wrap wrap
+                        justify-content space-between
+                        a
+                            background #000
+                            border-radius 0
+                            padding 12px 40px 11px
+                            font-size 1.1rem
+                            text-decoration none
+                            font-family font-bold
+                            color #FFF
+            ul.slick-dots
+                li
+                    margin 0 1px
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #E0E0E0
+                li.slick-active
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #006EB7
+
+    .sec3
+        background-image none
+        background linear-gradient(95.95deg, #000000 10.06%, #006EB7 100%)
+        background-position center
+        background-size cover
+        background-repeat no-repeat
+        .content
+            display flex
+            flex-wrap wrap
+            justify-content center
+            .content_left
+                width 85%
+                background-color #FFF
+                padding 30px 35px
+                display flex
+                flex-direction column
+                justify-content center
+                .image
+                    img
+                        width 100%
+                h2
+                    font-family font-extrabold
+                    font-size 1.4rem
+                    color #000
+                    text-align center
+                    margin 30px 0 15px
+                p
+                    font-family font-semibold
+                    font-size .9rem
+                    color #000
+                    line-height 1.4
+                    text-align justify
+                    margin 0
+            .content_right
+                width 85%
+                padding 30px 0 25px
+                display flex
+                flex-direction column
+                justify-content center
+                p.content_p
+                    font-family font-medium
+                    font-size .9rem
+                    color #fff
+                    text-align justify
+                    line-height 1.4
+                    margin 0
+                .items
+                    display flex
+                    flex-wrap wrap
+                    margin-top 20px
+                    .item
+                        width 100%
+                        padding 10px 12px
+                        display flex
+                        .item_
+                            background-color #FFF
+                            display flex
+                            flex-wrap wrap
+                            flex-direction column
+                            padding 30px 20px
+                            border-radius 15px
+                            transition .3s all
+                            &:hover
+                                background-color #FFED00
+                            .item_image
+                                width 100%
+                                text-align center
+                                margin-bottom 20px
+                                img
+                                    height 40px
+                            .item_text
+                                p
+                                    color #000
+                                    text-align center
+                                    line-height 1.4
+                                    margin 0
+                                    &:nth-child(1)
+                                        font-family font-bold
+                                        font-size 1rem
+                                        margin-bottom 10px
+                                    &:nth-child(2)
+                                        font-family font-medium
+                                        font-size .9rem
+
+    .sec4
+        padding 60px 0
+        .title
+            background-color #009640
+            width 100%
+            h2
+                color #FFF
+                font-size 1.5rem
+                font-family font-bold
+                padding 20px 20px 20px
+                text-align center
+        .carousel-testimonios
+            margin-top 50px
+            .item
+                margin-bottom 20px
+                padding-top 130px
+                .item_user
+                    display flex
+                    flex-wrap wrap
+                    justify-content space-between
+                    align-items center
+                    background-color #E2E2E2
+                    border-radius 7px
+                    margin 0 5px
+                    padding 10px 25px
+                    opacity .7
+                    .image
+                        width 30%
+                        img
+                            width 100%
+                            border-radius 50%
+                    .text
+                        width 66%
+                        h3
+                            font-family font-bold
+                            color #000
+                            font-size 1rem
+                            margin-bottom 10px
+                        .stars
+                            display flex
+                            flex-wrap wrap
+                            flex-direction row
+                            i
+                                color #006EB7
+                                font-size .9rem
+                .item_text
+                    display none
+            .slick-current
+                padding-top 0
+                .item_user
+                    background-color #FFF
+                    opacity 1
+                    .text
+                        h3
+                            color #000
+                        .stars
+                            i
+                                color #EF7D00
+                .item_text
+                    display block
+                    margin 5px 5px 0px 5px
+                    background-color #006EB7
+                    padding 28px 35px
+                    border-radius 7px
+                    p
+                        font-size .9rem
+                        font-family font-medium
+                        color #FFF
+                        text-align justify
+                        margin 0
+            ul.slick-dots
+                li
+                    margin 0 1px
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #E0E0E0
+                li.slick-active
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #EF7D00
+
+    .sec5
+        .content
+            display flex
+            flex-wrap wrap
+            width 100%
+            position relative
+            margin-top 250px
+            .logo
+                position absolute
+                height auto
+                left 0
+                top -250px
+                width 100%
+                display flex
+                align-items center
+                justify-content center
+                padding 0 15px
+                background-color #FFF
+                z-index 1
+                img
+                    height 250px
+                    width auto
+            .content_top
+                width 100%
+                background-image url(../images/bg_taller1.png)
+                background-position center
+                background-size cover
+                background-repeat no-repeat
+                height 150px
+                position relative
+                display flex
+                align-items center
+                .c2c
+                    position absolute
+                    bottom -19px
+                    left 0
+                    right 0
+                    display inline-table
+                    margin auto
+                    background-color #E30613
+                    box-shadow 0px 4px 10px rgba(0, 0, 0, 0.15)
+                    padding 10px 30px
+                    z-index 2
+                    h3
+                        font-family font-bold
+                        font-size 1.1rem
+                        color #FFF
+                        margin 0
+                .text
+                    display flex
+                    align-items center
+                    padding-left unset
+                    width 100%
+                    padding 0 5%
+                    justify-content space-between
+                    h3
+                        font-family font-bold
+                        font-size 1.2rem
+                        margin 0
+                        color #FFF
+                        width 30%
+                    a
+                        width 62%
+                        font-family font-bold
+                        font-size .9rem
+                        background linear-gradient(91.55deg, #E30613 0%, #F85962 100%)
+                        border 3px solid #FFFFFF
+                        border-radius 15px
+                        text-decoration none
+                        color #FFF
+                        padding 4px 10px 3px
+                        text-align center
+                        margin-left unset
+                        transition .5s all
+                        &:hover
+                            transform scale(1.1)
+            .content_bottom
+                width 100%
+                background-image url(../images/bg_taller2.png)
+                background-position center
+                background-size cover
+                background-repeat no-repeat
+                height 150px
+                position relative
+                display flex
+                align-items center
+                .text
+                    display flex
+                    align-items center
+                    padding-left unset
+                    width 100%
+                    padding 0 5%
+                    justify-content space-between
+                    h3
+                        font-family font-bold
+                        font-size 1.2rem
+                        margin 0
+                        color #FFF
+                        width 30%
+                    a
+                        width 62%
+                        font-family font-bold
+                        font-size .9rem
+                        background linear-gradient(91.55deg, #E30613 0%, #F85962 100%)
+                        border 3px solid #FFFFFF
+                        border-radius 15px
+                        text-decoration none
+                        color #FFF
+                        padding 4px 10px 3px
+                        margin-left unset
+                        text-align center
+                        transition .5s all
+                        &:hover
+                            transform scale(1.1)
+
+    .sec6
+        padding 60px 0
+        h2.tit
+            text-align center
+            background-color #006EB7
+            color #FFF
+            font-family font-bold
+            font-size 1.5rem
+            padding 25px 0
+            margin 0 20px
+            margin-bottom 45px
+        .carousel-blog
+            .item
+                display flex
+                flex-wrap wrap
+                background #FFFFFF
+                box-shadow 0px 4px 20px rgba(0, 0, 0, 0.15)
+                border-radius 0px 0px 25px 25px
+                margin-bottom 30px
+                margin-right 20px
+                margin-left 20px
+                .item_header
+                    width 100%
+                    img
+                        width 100%
+                .item_content
+                    width 100%
+                    padding 30px 20px 8px
+                    text-align center
+                    height 300px
+                    display flex
+                    flex-wrap wrap
+                    flex-direction column
+                    justify-content space-between
+                    h2
+                        color #E30613
+                        font-size 1rem
+                        font-family font-bold
+                        margin-bottom 15px
+                        text-align left
+                    .description
+                        p
+                            color #000
+                            font-size .9rem
+                            line-height 1.4
+                            text-align justify
+                            margin-bottom 13px
+                    a
+                        font-family font-bold
+                        color #253238
+                        background-color #FFED00
+                        font-size 1rem
+                        text-decoration none
+                        padding 4px 30px 3px
+                        border-radius 6px
+                        transition .5s all
+                        &:hover
+                            transform scale(1.1)
+                    p
+                        color #C2C2C2
+                        font-size .8rem
+                        text-align center
+                        margin 10px 0 0
+            ul.slick-dots
+                li
+                    margin 0 1px
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #E0E0E0
+                li.slick-active
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #006EB7
+            .slick-prev
+                left -40px
+            .slick-next
+                right -40px
+            .slick-prev, .slick-next
+                display none !important
+                width 40px
+                &:before
+                    font-size 30px
+                    color #CFCFCF
+                    opacity .8
+
+    .sec7
+        //background-image url(../images/bg_nosotros.jpg)
+        background-position center
+        background-size cover
+        background-repeat no-repeat
+        height 40vh
+        p
+            color #FFF
+            font-family font-medium
+            font-size 1rem
+            margin-top 20vh
+            text-align center
+            margin-bottom 0
+            padding 0 5%
+        h1
+            color #FFF
+            font-family font-bold
+            font-size 2rem
+            text-align center
+            padding 0 5%
+
+    .sec8
+        padding 60px 0 80px
+        .title
+            background-color #E30613
+            width 100%
+            h2
+                color #FFF
+                font-size 1.5rem
+                font-family font-bold
+                padding 20px 20px
+                text-align center
+        .text
+            margin 40px 0
+            p
+                color #4D4D4D
+                font-family font-medium
+                font-size 1rem
+                line-height 1.4
+                margin 0
+        .carousel-nosotros
+            .item
+                margin 0 20px
+                img
+                    width 100%
+            .slick-prev
+                position absolute !important
+                bottom -47px
+                top unset
+                right 35px
+                left 0
+                margin auto
+            .slick-next
+                position absolute !important
+                bottom -47px
+                top unset
+                left 0
+                right -35px
+                margin auto
+            .slick-prev, .slick-next
+                width 40px
+                &:before
+                    font-size 30px
+                    color #CFCFCF
+                    opacity .8
+
+    .sec9
+        background-image url(../images/bg_historia.jpg)
+        background-position center
+        background-size cover
+        background-repeat no-repeat
+        padding 60px 0
+        h2
+            color #FFF
+            font-size 1.5rem
+            font-family font-bold
+            background-color #EF7D00
+            padding 20px 50px
+            text-align center
+            margin 0 10%
+            margin-bottom 50px
+        .text
+            padding 0 5%
+            h3
+                font-size 2rem
+                font-family font-bold
+                color #FFF
+                font-style italic
+                margin-bottom 40px
+            p
+                line-height 1.4
+                font-family font-medium
+                font-size 1rem
+                color #FFF
+                text-align justify
+
+    .sec10
+        padding 60px 0 0px
+        .items
+            display flex
+            flex-wrap wrap
+            justify-content space-between
+            .item
+                width 100%
+                background-color #515151
+                border-radius 10px
+                padding 30px 40px
+                transition .4s all
+                margin-bottom 30px
+                &:hover
+                    background-color #ffed00
+                    h4, p
+                        color #000
+                h4
+                    color #FFF
+                    font-family font-bold
+                    font-size 1.5rem
+                    margin-bottom 18px
+                    text-align center
+                p
+                    line-height 1.4
+                    color #FFF
+                    font-family font-medium
+                    font-size .9rem
+                    margin 0
+                    text-align justify
+
+    .sec11
+        padding 60px 0
+        .title
+            background-color #FFED00
+            width 100%
+            h2
+                color #FFF
+                font-size 1.5rem
+                font-family font-bold
+                padding 20px 20px
+                text-align center
+        .carousel-consejo-directivo
+            margin-top 50px
+            .item
+                display flex
+                flex-wrap wrap
+                justify-content center
+                padding-top 130px
+                .item_card
+                    width 100%
+                    display flex
+                    flex-wrap wrap
+                    justify-content space-between
+                    align-items center
+                    background-color #E2E2E2
+                    border-radius 10px
+                    margin 0 10px 8px
+                    padding 15px 20px
+                    opacity .7
+                    .image
+                        width 20%
+                        img
+                            width 100%
+                    .text
+                        width 74%
+                        h4
+                            font-family font-bold
+                            color #515151
+                            font-size .9rem
+                            margin-bottom 2px
+                        p
+                            font-family font-semibold
+                            font-style italic
+                            color #515151
+                            font-size .8rem
+                            margin 0
+                .item_person
+                    display none
+            .slick-current
+                padding-top 0
+                .item_card
+                    background-color #E30613
+                    opacity 1
+                    .image
+                        display none
+                    .text
+                        width 100%
+                        h4, p
+                            color #FFF
+                .item_person
+                    display block
+                    width 100%
+                    margin-bottom 20px
+                    padding 0 10px
+                    border-radius 10px
+                    img
+                        width 100%
+                        border-radius 10px
+            ul.slick-dots
+                li
+                    margin 0 1px
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #E0E0E0
+                li.slick-active
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #006EB7
+
+    .sec12
+        background-image url(../images/bg_eventos.jpg)
+        background-position center
+        background-size cover
+        background-repeat no-repeat
+        height 60vh
+        p
+            color #FFF
+            font-family font-medium
+            font-size 1rem
+            margin-top 28vh
+            text-align center
+            margin-bottom 0
+        h1
+            color #FFF
+            font-family font-bold
+            font-size 4rem
+            text-align center
+
+    .sec13
+        margin 70px 0 40px
+        .line
+            position absolute
+            width 100%
+            top 311px
+            left 0
+            height 80px
+        .line1
+            background-color #006EB7
+        .line2
+            background-color #EF7D00
+        .line3
+            background-color #009640
+        .line4
+            background-color #FFED00
+        .content
+            display flex
+            flex-wrap wrap
+            justify-content center
+            position relative
+            margin-bottom 60px
+            .image
+                width 60%
+                img
+                    width auto
+                    height 311px
+            .content_text
+                width 100%
+                display flex
+                flex-direction column
+                order 2
+                .content_header
+                    display flex
+                    flex-wrap wrap
+                    justify-content space-between
+                    align-items center
+                    height 80px
+                    h2
+                        color #FFF
+                        font-size 1.5rem
+                        font-family font-bold
+                        margin 0
+                    a
+                        font-family font-bold
+                        font-size 1rem
+                        color #FFF
+                        text-decoration none
+                        display inline-block
+                        background linear-gradient(91.55deg, #000000 0%, #656565 100%)
+                        padding 4px 30px 3px
+                        border 3px solid #FFFFFF
+                        border-radius 15px
+                .text
+                    margin 30px 0
+                    p
+                        color #4D4D4D
+                        line-height 1.4
+                        text-align justify
+                        font-family font-medium
+                        font-size .9rem
+                .text_button
+                    text-align center
+                    margin-top 25px
+                    a
+                        font-family font-bold
+                        font-size .9rem
+                        color #FFF
+                        background linear-gradient(91.55deg, #E30613 0%, #F85962 100%)
+                        padding 6px 50px 5px
+                        text-decoration none
+                        border-radius 15px
+                .items_tab
+                    box-shadow 0 8px 10px rgba(0, 0, 0, .45)
+                    border-radius 10px
+                    .navpill1
+                        background-color #006EB7
+                    .navpill2
+                        background-color #EF7D00
+                    .navpill3
+                        background-color #009640
+                    .navpill4
+                        background-color #FFED00
+                    ul.nav-pills
+                        justify-content flex-start
+                        border-radius 11px 11px 0 0
+                        padding-bottom 1px
+                        li.nav-item
+                            margin-bottom 0px
+                            .navlink1
+                                background-color #006EB7
+                            .navlink2
+                                background-color #EF7D00
+                            .navlink3
+                                background-color #009640
+                            .navlink4
+                                background-color #FFED00
+                            button.nav-link
+                                border-radius 10px 10px 0 0
+                                color #FFF
+                                font-size .9rem
+                                font-family font-bold
+                                padding-top 12px
+                                padding-bottom 12px
+                            button.active
+                                background-color #FFF
+                                color #000
+                    .tab-content
+                        .tab-pane
+                            padding 30px 20px 35px
+                            p
+                                font-family font-medium
+                                font-size .8rem
+                                color #4D4D4D
+                                line-height 1.4
+                            ul
+                                li
+                                    color #4D4D4D
+                            .zonas
+                                img
+                                    width 100% !important
+                                    height auto !important
+                            .promociones
+                                p
+                                    text-align center
+                                    img
+                                        width 100% !important
+                                        height auto !important
+                            .carta
+                                a
+                                    background linear-gradient(91.55deg,#000 0%,#656565 100%)
+                                    font-family font-bold
+                                    color #FFF
+                                    font-size .9rem
+                                    text-decoration none
+                                    padding 4px 30px 3px
+        .h2events1
+            color #006EB7
+        .h2events2
+            color #EF7D00
+        .h2events3
+            color #009640
+        .h2events
+            font-size 1.5rem
+            font-family font-bold
+            margin-bottom 50px
+            text-align center
+        .eventspage1
+            ul.slick-dots
+                li.slick-active
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #006EB7
+        .eventspage2
+            ul.slick-dots
+                li.slick-active
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #EF7D00
+        .eventspage3
+            ul.slick-dots
+                li.slick-active
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #009640
+        .carousel-eventos-page
+            .item
+                display flex
+                flex-wrap wrap
+                flex-direction column
+                margin 0 40px 30px
+                text-align center
+                img
+                    width 100%
+                    margin-bottom 17px
+                .comprar1
+                    background linear-gradient(91.55deg, #006EB7 0%, #44CCFD 100%)
+                .comprar2
+                    background linear-gradient(91.55deg, #EF7D00 0%, #FFAF6D 100%)
+                .comprar3
+                    background linear-gradient(91.55deg, #009640 0%, #92D050 100%)
+                .comprar
+                    text-decoration none
+                    font-family font-bold
+                    color #FFF
+                    font-size .9rem
+                    border-radius 15px
+                    
+                    padding-top 6px
+                    padding-bottom 5px
+            ul.slick-dots
+                li
+                    margin 0 1px
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #E0E0E0
+                li.slick-active
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+            .slick-prev
+                left -40px
+            .slick-next
+                right -40px
+            .slick-prev, .slick-next
+                width 40px
+                display none !important
+                &:before
+                    font-size 30px
+                    color #CFCFCF
+                    opacity .8
+
+    .sec14
+        margin-top 13vh
+        .item1
+            background-image url(../images/bg_evento.jpg)
+            background-position center
+            background-size cover
+            background-repeat no-repeat
+            height 20vh
+            display flex
+            flex-direction column
+            justify-content center
+            align-items center
+            p
+                color #FFF
+                font-family font-medium
+                font-size 1rem
+                text-align center
+                margin-bottom 0
+                padding 0 5%
+            h1
+                color #FFF
+                font-family font-bold
+                font-size 1.4rem
+                text-align center
+                margin 0
+                padding 0 5%
+        .item2
+            background-color #000
+            height 11vh
+            display flex
+            flex-direction column
+            justify-content center
+            align-items center
+            padding 0 5%
+            h2
+                color #FFF
+                font-family font-bold
+                font-size 1.5rem
+                text-align center
+                margin 0
+        .item3
+            background-image url(../images/Evento_slider.png)
+            background-position center
+            background-size cover
+            background-repeat no-repeat
+            height 20vh
+
+    .sec15
+        margin 20px 0 40px
+        .content
+            display flex
+            flex-wrap wrap
+            justify-content center
+            position relative
+            margin-bottom 60px
+            .content_text
+                width 100%
+                display flex
+                flex-direction column
+                .text
+                    margin 30px 0
+                    p
+                        color #4D4D4D
+                        line-height 1.4
+                        text-align justify
+                        margin 0
+                        font-family font-medium
+                        font-size .9rem
+                .items_tab
+                    box-shadow 0 8px 10px rgba(0, 0, 0, .45)
+                    border-radius 10px
+                    .navpill1
+                        background-color #006EB7
+                    .navpill2
+                        background-color #EF7D00
+                    .navpill3
+                        background-color #009640
+                    ul.nav-pills
+                        justify-content flex-start
+                        border-radius 11px 11px 0 0
+                        padding-bottom 1px
+                        li.nav-item
+                            margin-bottom 0px
+                            .navlink1
+                                background-color #006EB7
+                            .navlink2
+                                background-color #EF7D00
+                            .navlink3
+                                background-color #009640
+                            button.nav-link
+                                border-radius 10px 10px 0 0
+                                color #FFF
+                                font-size .9rem
+                                font-family font-bold
+                                padding-top 12px
+                                padding-bottom 12px
+                            button.active
+                                background-color #FFF
+                                color #000
+                    .tab-content
+                        .tab-pane
+                            padding 30px 20px 35px
+                            p
+                                font-family font-medium
+                                font-size .9rem
+                                color #4D4D4D
+                                margin 0
+                                line-height 1.4
+                            ul
+                                li
+                                    color #4D4D4D
+            .item_a
+                text-align center
+                margin 100px 0 20px
+                width 100%
+                height 150px
+                background-color #FFF
+                display flex
+                flex-wrap wrap
+                justify-content center
+                align-items center
+                .linecolor
+                    width 100%
+                    background-color #006EB7
+                    height 55px
+                .line_a
+                    width 60%
+                    background-color #006EB7
+                    height 40px
+                    display flex
+                    align-items center
+                    justify-content center
+                    a
+                        font-family font-bold
+                        font-size 1rem
+                        color #FFF
+                        text-decoration none
+                        display inline-block
+                        background linear-gradient(91.55deg, #000000 0%, #656565 100%)
+                        padding 4px 30px 3px
+                        border 3px solid #FFFFFF
+                        border-radius 15px
+                        position relative
+        .h2events1
+            color #006EB7
+        .h2events2
+            color #EF7D00
+        .h2events3
+            color #009640
+        .h2events
+            font-size 1.5rem
+            font-family font-bold
+            margin-bottom 50px
+            text-align center
+        .eventspage1
+            ul.slick-dots
+                li.slick-active
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #006EB7
+        .eventspage2
+            ul.slick-dots
+                li.slick-active
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #EF7D00
+        .eventspage3
+            ul.slick-dots
+                li.slick-active
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #009640
+        .carousel-eventos-page
+            .item
+                display flex
+                flex-wrap wrap
+                flex-direction column
+                margin 0 40px 30px
+                text-align center
+                img
+                    width 100%
+                    margin-bottom 17px
+                .comprar1
+                    background linear-gradient(91.55deg, #006EB7 0%, #44CCFD 100%)
+                .comprar2
+                    background linear-gradient(91.55deg, #EF7D00 0%, #FFAF6D 100%)
+                .comprar3
+                    background linear-gradient(91.55deg, #009640 0%, #92D050 100%)
+                .comprar
+                    text-decoration none
+                    font-family font-bold
+                    color #FFF
+                    font-size .9rem
+                    border-radius 15px
+                    
+                    padding-top 6px
+                    padding-bottom 5px
+            ul.slick-dots
+                li
+                    margin 0 1px
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #E0E0E0
+                li.slick-active
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+            .slick-prev
+                left -40px
+            .slick-next
+                right -40px
+            .slick-prev, .slick-next
+                width 40px
+                display none !important
+                &:before
+                    font-size 30px
+                    color #CFCFCF
+                    opacity .8
+        .back
+            text-align center
+            margin-top 80px
+            a
+                color rgba(0, 0, 0, 0.4)
+                font-family font-medium
+                font-size .9rem
+                text-decoration none
+                transition .5s all
+                &:hover
+                    color rgba(0, 0, 0, .75)
+                img
+                    height 19px
+                    padding-right 16px
+
+    .sec16
+        background-image url(../images/bg_talleres.jpg)
+        background-position center
+        background-size cover
+        background-repeat no-repeat
+        height 60vh
+        p
+            color #FFF
+            font-family font-medium
+            font-size 1rem
+            margin-top 28vh
+            text-align center
+            margin-bottom 0
+        h1
+            color #FFF
+            font-family font-bold
+            font-size 4rem
+            text-align center
+
+    .sec17
+        .text_
+            position relative
+            padding 0
+            margin 60px 0 30px
+            .line
+                position absolute
+                height 50px
+                background-color #E30613
+                top 0
+                left 0
+                bottom 0
+                margin auto
+                z-index -1
+                width 100%
+            .text
+                margin 0 10%
+                padding 0 25px
+                background-color #FFF
+                p
+                    font-family font-medium
+                    font-size .9rem
+                    color #4D4D4D
+                    line-height 1.4
+        .slider-for-talleres
+            margin-bottom 30px
+            .item
+                //background-image url(../images/Taller_slider.png)
+                background-position center
+                background-size cover
+                background-repeat no-repeat
+                height 120px
+                display flex
+                flex-wrap wrap
+                justify-content center
+                align-items center
+                margin-bottom 20px
+                h4
+                    color #FFF
+                    font-size 2rem
+                    font-family font-bold
+            ul.slick-dots
+                li
+                    margin 0 1px
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #E0E0E0
+                li.slick-active
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #EF7D00
+        .slider-nav-talleres
+            margin 0 16%
+            display none
+            .item
+                //background-image url(../images/Taller.png)
+                background-position center
+                background-size cover
+                background-repeat no-repeat
+                height 150px
+                display flex
+                flex-wrap wrap
+                justify-content center
+                align-items center
+                margin 0 10px 20px
+                h4
+                    color #FFF
+                    font-size 2rem
+                    font-family font-bold
+            ul.slick-dots
+                li
+                    margin 0 1px
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #E0E0E0
+                li.slick-active
+                    button
+                        &:before
+                            opacity 1
+                            font-size 15px
+                            color #EF7D00
+            .slick-prev
+                left -55px
+            .slick-next
+                right -55px
+            .slick-prev, .slick-next
+                width 40px
+                &:before
+                    font-size 30px
+                    color #CFCFCF
+                    opacity .8
+
+    .sec18
+        margin 30px 0 40px
+        .line
+            position absolute
+            width 100%
+            top 311px
+            left 0
+            height 90px
+            background-color #FFED00
+        .content
+            display flex
+            flex-wrap wrap
+            justify-content center
+            position relative
+            margin-bottom 70px
+            .image
+                width 60%
+                img
+                    height 311px
+                    width auto
+            .content_text
+                width 100%
+                display flex
+                flex-direction column
+                order 2
+                .content_header
+                    display flex
+                    flex-wrap wrap
+                    justify-content center
+                    align-items center
+                    height auto
+                    margin-top 11px
+                    h2
+                        color #000
+                        font-size 1.5rem
+                        font-family font-bold
+                        margin 0
+                    a
+                        font-family font-bold
+                        font-size 1rem
+                        color #FFF
+                        text-decoration none
+                        display inline-block
+                        background linear-gradient(91.55deg, #000000 0%, #656565 100%)
+                        padding 4px 30px 3px
+                        border 3px solid #FFFFFF
+                        border-radius 15px
+                .text
+                    margin 30px 0
+                    p
+                        color #4D4D4D
+                        line-height 1.4
+                        text-align justify
+                        margin 0
+                        font-family font-medium
+                        font-size .9rem
+                .text_button
+                    text-align center
+                    margin-top 25px
+                    a
+                        font-family font-bold
+                        font-size .9rem
+                        color #FFF
+                        background linear-gradient(91.55deg, #E30613 0%, #F85962 100%)
+                        padding 6px 50px 5px
+                        text-decoration none
+                        border-radius 15px
+                .items_tab
+                    box-shadow 0 8px 10px rgba(0, 0, 0, .45)
+                    border-radius 10px
+                    ul.nav-pills
+                        justify-content flex-start
+                        border-radius 11px 11px 0 0
+                        padding-bottom 1px
+                        background-color #FFED00
+                        li.nav-item
+                            margin-bottom -1px
+                            margin-right 24px
+                            button.nav-link
+                                border-radius 10px 10px 0 0
+                                color #000
+                                font-size .9rem
+                                font-family font-bold
+                                padding-top 12px
+                                padding-bottom 12px
+                                background-color #FFED00
+                            button.active
+                                background-color #FFF
+                                color #000
+                    .tab-content
+                        .tab-pane
+                            padding 30px 20px 35px
+                            p
+                                font-family font-medium
+                                font-size .9rem
+                                color #4D4D4D
+                                margin 0
+                                line-height 1.4
+                            ul
+                                li
+                                    color #4D4D4D
+        .carousel-talleres
+            margin-bottom 55px
+            .item
+                margin 0 20px
+                img
+                    width 100%
+            .slick-prev
+                position absolute !important
+                bottom -47px
+                top unset
+                right 35px
+                left 0
+                margin auto
+            .slick-next
+                position absolute !important
+                bottom -47px
+                top unset
+                left 0
+                right -35px
+                margin auto
+            .slick-prev, .slick-next
+                width 40px
+                &:before
+                    font-size 30px
+                    color #CFCFCF
+                    opacity .8
+
+    .sec19
+        background-image url(../images/bg_contacto.jpg)
+        background-position center
+        background-size cover
+        background-repeat no-repeat
+        height 60vh
+        p
+            color #FFF
+            font-family font-medium
+            font-size 1rem
+            margin-top 28vh
+            text-align center
+            margin-bottom 0
+        h1
+            color #FFF
+            font-family font-bold
+            font-size 4rem
+            text-align center
+
+    .sec20
+        padding 60px 0
+        .content
+            display flex
+            flex-wrap wrap
+            justify-content space-between
+            align-items flex-start
+            .map
+                width 100%
+                margin-bottom 20px
+                iframe
+                    width 100% !important
+                    height 350px !important
+            .detail
+                width 100%
+                display flex
+                flex-wrap wrap
+                justify-content space-between
+                .contact_left
+                    width 100%
+                    background-color #2F2F2F
+                    margin-bottom 18px
+                    h3
+                        font-family font-bold
+                        font-size 1rem
+                        color #FFF
+                        background-color #EF7D00
+                        text-align center
+                        padding 9px 0
+                        margin 25px 0 30px
+                    .items
+                        display flex
+                        flex-wrap wrap
+                        padding 0 33px 30px
+                        .item
+                            display flex
+                            align-items center
+                            margin-bottom 3px
+                            img
+                                width 18px
+                                margin-right 8px
+                            p
+                                font-size .8rem
+                                margin 0
+                                color #FFF
+                .contact_right
+                    width 100%
+                    background-color #2F2F2F
+                    h3
+                        font-family font-bold
+                        font-size 1rem
+                        color #FFF
+                        background-color #009640
+                        text-align center
+                        padding 9px 0
+                        margin 25px 0 30px
+                    .items
+                        display flex
+                        align-items center
+                        flex-direction column
+                        margin-bottom 15px
+                        p
+                            text-align center
+                            font-size .8rem
+                            line-height 1.4
+                            color #FFF
+                            strong
+                                font-family font-bold
+                .formu
+                    width 100%
+                    margin-top 30px
+                    p
+                        font-family font-bold
+                        font-size 1rem
+                        color #000
+                        text-align center
+                    form
+                        display flex
+                        flex-wrap wrap
+                        justify-content space-between
+                        label
+                            font-size .7rem
+                            padding .75rem 0.75rem
+                        .form-control
+                            &:focus
+                                padding-bottom 1rem
+                                box-shadow none
+                        input, textarea, select
+                            font-size .75rem
+                            height 40px
+                            background-color #FFF
+                            color #6A6B6A
+                            border-radius 12px
+                        textarea
+                            height 120px
+                        .form_left
+                            width 100%
+                        .form_right
+                            margin-top 1rem
+                            width 100%
+                        .form_button
+                            width 100%
+                            text-align center
+                            margin-top 30px
+                            button
+                                padding 7px 100px 6px
+                                font-family font-semibold
+                                color #FFF
+                                font-size .8rem
+                                background-color #E30613
+                                border 0
+                                border-radius 12px
+
+    .sec21
+        background-image url(../images/bg_blog.jpg)
+        background-position center
+        background-size cover
+        background-repeat no-repeat
+        height 60vh
+        p
+            color #FFF
+            font-family font-medium
+            font-size 1rem
+            margin-top 28vh
+            text-align center
+            margin-bottom 0
+        h1
+            color #FFF
+            font-family font-bold
+            font-size 4rem
+            text-align center
+
+    .sec22
+        padding-bottom 40px
+        .text_
+            position relative
+            padding 0
+            margin 60px 0
+            .line
+                position absolute
+                height 50px
+                background-color #009640
+                top 0
+                left 0
+                bottom 0
+                margin auto
+                z-index -1
+                width 100%
+            .text
+                margin 0 10%
+                padding 0 25px
+                background-color #FFF
+                p
+                    font-family font-medium
+                    font-size .9rem
+                    color #4D4D4D
+                    line-height 1.4
+        .items
+            display flex
+            flex-wrap wrap
+            margin 0 5%
+            .item
+                width 100%
+                display flex
+                flex-wrap wrap
+                margin-bottom 40px
+                .item_left
+                    width 100%
+                    img
+                        width 100%
+                .item_right
+                    width 100%
+                    background #FFFFFF
+                    box-shadow 0px 4px 20px rgba(0, 0, 0, 0.15)
+                    border-radius 0px 0px 25px 25px
+                    display flex
+                    flex-wrap wrap
+                    flex-direction column
+                    justify-content space-between
+                    padding 30px 25px 15px
+                    .item_header
+                        padding-right 15%
+                        h3
+                            color #E30613
+                            font-family font-bold
+                            font-size 1rem
+                        .detail
+                            p
+                                color #000
+                                font-size .9rem
+                                line-height 1.4
+                                text-align justify
+                                margin-bottom 13px
+                    .item_footer
+                        display flex
+                        flex-wrap wrap
+                        flex-direction row
+                        justify-content space-between
+                        align-items flex-end
+                        margin-top 15px
+                        a
+                            font-family font-bold
+                            color #253238
+                            background-color #FFED00
+                            font-size .9rem
+                            text-decoration none
+                            padding 5px 40px 4px
+                            border-radius 4px
+                            transition .5s all
+                        p
+                            color #C2C2C2
+                            font-size .7rem
+                            text-align center
+                            margin 0
+
+    .sec23
+        margin-top 13vh
+        .item1
+            background-image url(../images/bg_post.png)
+            background-position center
+            background-size cover
+            background-repeat no-repeat
+            height 20vh
+            display flex
+            flex-direction column
+            justify-content center
+            align-items center
+            p
+                color #FFF
+                font-family font-medium
+                font-size 1rem
+                text-align center
+                margin-bottom 0
+                padding 0 5%
+            h1
+                color #FFF
+                font-family font-bold
+                font-size 1.4rem
+                text-align center
+                margin 0
+                padding 0 5%
+        .item2
+            background-color #000
+            height auto
+            display flex
+            flex-direction column
+            justify-content center
+            align-items center
+            padding 15px 5%
+            h2
+                color #FFF
+                font-family font-bold
+                font-size 1.1rem
+                text-align center
+                margin 0
+        .item3
+            //background-image url(../images/Evento_slider.png)
+            background-position center
+            background-size cover
+            background-repeat no-repeat
+            height 20vh
+
+    .sec24
+        .description
+            margin-top 50px
+            padding 0 5%
+            p
+                color #000
+                font-size 1rem
+                line-height 1.4
+                text-align justify
+
+    .sec25
+        background-image url(../images/bg_profile.png)
+        background-position center
+        background-size cover
+        background-repeat no-repeat
+        margin-top 13vh
+        .text
+            padding 50px 0
+            p
+                font-family font-medium
+                font-size .9rem
+                color #FFF
+                margin 0
+                text-decoration underline
+            h2
+                color #FFF
+                font-size 1.5rem
+                font-family font-bold
+
+    .sec26
+        padding-bottom 65px
+        .tit_profile
+            background-color #FFED00
+            width 100%
+            padding 8px 15px
+            position relative
+            height 40px
+            border-radius 12px 12px 0 0
+            margin -20px 0 40px
+            h3
+                font-family font-bold
+                color #000
+                font-size 1rem
+                margin 0
+                background-color #FFF
+                padding: 0px 50px
+                position absolute
+                top 0
+                left 20px
+                height 100%
+                display flex
+                align-items center
+                border-radius 12px 12px 0 0
+        .items
+            width 100%
+            display flex
+            flex-wrap wrap
+            .item1
+                width 100%
+            .item2
+                width 100%
+            .item3
+                width 100%
+                margin-top 25px
+                label#choose-file-label
+                    background-color #006EB7
+                    color #FFF
+                    font-family font-semibold
+                    font-size .9rem
+                    padding 6px 15px
+                    border-radius 12px
+                    word-break break-word
+                    width 100%
+                    cursor pointer
+                .avatar_photo
+                    text-align center
+                    margin-top 20px
+                    img
+                        width 90%
+            .item4
+                width 100%
+            .item
+                padding 0 15px
+                .form-group
+                    margin-bottom 15px
+                    label.input-label
+                        color #006EB7
+                        font-family font-bold
+                        font-size .9rem
+                        padding-left .75rem
+                    input[type=text], input[type=password], input[type=date], select
+                        color rgba(106, 107, 106, 0.6);
+                        font-family font-semibold
+                        font-size .9rem
+                        background-color #FFFFFF
+                        box-shadow 0px 0px 6px rgba(0, 0, 0, 0.4)
+                        border-radius 12px
+                    select
+                        background-image url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E") !important
+                        background-position right 0.75rem center !important
+                        background-repeat no-repeat !important
+                        background-size 16px 12px !important
+                    select[name=type_document]
+                        margin-right 13px
+                    .form-control:disabled, .form-control[readonly]
+                        background-color #e9ecef !important
+                        cursor not-allowed
+                    ::placeholder
+                        color rgba(106, 107, 106, 0.3);
+                        font-family font-semibold
+                        font-size .9rem
+                .btn-submit
+                    font-family font-semibold
+                    color #FFF
+                    background-color #E30613
+                    font-size .9rem
+                    padding 4px 40px 3px
+                    border-radius 12px
+                    margin-top 20px
+
+    .sec27
+        padding-bottom 45px
+        .tit_profile
+            background-color #009640
+            width 100%
+            padding 8px 15px
+            position relative
+            height 40px
+            border-radius 12px 12px 0 0
+            margin -20px 0 40px
+            h3
+                font-family font-bold
+                color #000
+                font-size 1rem
+                margin 0
+                background-color #FFF
+                padding: 0px 50px
+                position absolute
+                top 0
+                left 20px
+                height 100%
+                display flex
+                align-items center
+                border-radius 12px 12px 0 0
+        .tickets
+            display flex
+            flex-wrap wrap
+            width 100%
+            .ticket
+                width 100%
+                .tit
+                    width 100%
+                    border-bottom 1px solid #C4C4C4
+                    p
+                        font-family font-medium
+                        color #000
+                        font-size .9rem
+                        margin 0
+                        line-height 1.3
+                        span
+                            font-family font-semibold
+                            font-style italic
+                table
+                    width 100%
+                    thead
+                        .t1
+                            text-align left !important
+                        tr
+                            text-align center
+                            th
+                                color rgba(0, 0, 0, .4)
+                                font-family font-medium
+                                font-size .7rem
+                    tbody
+                        .t1
+                            text-align left !important
+                        tr
+                            td
+                                text-align center
+                                a
+                                    color #006EB7
+                                    font-family font-semibold
+                                    font-size .8rem
+                                    text-decoration none
+                                p
+                                    color #000
+                                    font-size .8rem
+                                    margin 0
+                                    line-height 1.3
+
+
+    .footer
+        background linear-gradient(95.95deg, #000000 10.06%, #006EB7 100%)
+        padding 55px 0
+        .content_
+            display flex
+            flex-wrap wrap
+            flex-direction row
+            justify-content space-between
+            width 100%
+            .item1
+                width 100%
+                position relative
+                display flex
+                align-items center
+                flex-direction column
+                justify-content center
+                margin-bottom 25px
+                img
+                    height 90px
+                p
+                    font-family font-medium
+                    font-size .9rem
+                    color #FFF
+                    margin 20px 0 0
+            .item2
+                width 100%
+                display flex
+                flex-wrap wrap
+                ul.ul1
+                    width 50%
+                    list-style-type none
+                    margin 0
+                    padding 0
+                    li
+                        margin-bottom 10px
+                        a
+                            text-decoration none
+                            color #FFF
+                            font-family font-medium
+                            font-size .9rem
+                ul.ul2
+                    width 50%
+                    list-style-type none
+                    margin 0
+                    padding 0
+                    li
+                        margin-bottom 10px
+                        a
+                            text-decoration none
+                            color #FFF
+                            font-family font-medium
+                            font-size .9rem
+                .subscribe
+                    width 100%
+                    margin-top 20px
+                    p
+                        font-size .9rem
+                        color #FFF
+                        margin-bottom 9px
+                        font-family font-medium
+                    form
+                        display flex
+                        ::placeholder
+                            color #C1C1C1
+                            font-size .9rem
+                            font-family font-medium
+                        input[type=email]
+                            color #C1C1C1
+                            font-size .9rem
+                            font-family font-medium
+                            padding-left 20px
+                            border-radius 20px
+                            border 0
+                            &:focus
+                                box-shadow none !important
+                        input[type=submit]
+                            background-color #000
+                            font-family font-bold
+                            font-size .9rem
+                            color #FFF
+                            border-radius 20px
+                            padding 1px 23px
+                            margin-left -30px
+            .item3
+                margin-top 30px
+                width 100%
+                text-align center
+                padding 0 35px
+                .redes
+                    display flex
+                    flex-wrap wrap
+                    flex-direction row
+                    justify-content space-between
+                    margin-bottom 7px
+                    a
+                        margin-bottom 0
+                        img
+                            width 20spx
+                p
+                    color #FFF
+                    font-size .8rem
+                    margin 0
