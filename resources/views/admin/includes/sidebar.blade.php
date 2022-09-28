@@ -10,6 +10,12 @@
             <i class="fas fa-globe text-gray pr-1"></i> Ver Web
         </a>
 
+        <div class="sidenav-menu-heading">Usuarios</div>
+        <a class="nav-link @if(preg_match("/users/", Route::currentRouteName())) active @endif" 
+        href="{{ route('users.index') }}">
+            <i class="fas fa-home text-gray pr-1"></i> Socios
+        </a>
+
         <div class="sidenav-menu-heading">Páginas</div>
         <a class="nav-link @if(preg_match("/pagefields.home/", Route::currentRouteName())) active @endif" 
         href="{{ route('pagefields.home') }}">
@@ -78,14 +84,14 @@
             <i class="fas fa-home text-gray pr-1"></i> Eventos Especiales
         </a>
 
-        <div class="sidenav-menu-heading">Centro de Arte</div>
+        <div class="sidenav-menu-heading">Talleres Educativos</div>
         <a class="nav-link @if(in_array(Route::currentRouteName(), array('workshops.index', 'workshops.edit', 'workshops.create'))) active @endif" 
         href="{{ route('workshops.index') }}">
-            <i class="fas fa-home text-gray pr-1"></i> Talleres Educativos
+            <i class="fas fa-home text-gray pr-1"></i> Talleres (Categorías)
         </a>
         <a class="nav-link @if(in_array(Route::currentRouteName(), array('workshop_events.index', 'workshop_events.edit', 'workshop_events.create'))) active @endif" 
         href="{{ route('workshop_events.index') }}">
-            <i class="fas fa-home text-gray pr-1"></i> Talleres
+            <i class="fas fa-home text-gray pr-1"></i> Crear Taller
         </a>
 
         <div class="sidenav-menu-heading">Blog</div>

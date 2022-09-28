@@ -125,6 +125,7 @@
     </div>
 </section>
 
+@if($workshop_event->stock >= 1)
 <section class="sec15">
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -144,6 +145,7 @@
         </div>
     </div>
 </section>
+@endif
 
 <section class="sec15 mt-3">
     <div class="container">
@@ -165,9 +167,9 @@
                 </div>
                 @endif
                 <div class="back wow fadeIn" data-wow-delay="0.6s">
-                    <a href="{{ route('events') }}" class="">
+                    <a href="{{ route('workshops') }}" class="">
                         <img src="{{ asset('images/arrow_back.png') }}" alt="">
-                        Regresar a Eventos
+                        Regresar a Talleres
                     </a>
                 </div>
             </div>

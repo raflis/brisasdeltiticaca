@@ -26,4 +26,7 @@ Route::prefix('/admin')->group(function(){
     Route::get('categories/special', [App\Http\Controllers\Admin\CategoryController::class,'special'])->name('categories.special');
     Route::get('sales/excel', [App\Http\Controllers\Admin\SaleController::class, 'excel'])->name('sales.excel');
     Route::resource('sales', App\Http\Controllers\Admin\SaleController::class);
+    Route::post('provinces', [App\Http\Controllers\Admin\UserController::class, 'getProvinces'])->name('provinces');
+    Route::post('districts', [App\Http\Controllers\Admin\UserController::class, 'getDistricts'])->name('districts');
+    Route::resource('users', App\Http\Controllers\Admin\UserController::class);
 });

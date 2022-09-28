@@ -2,7 +2,7 @@
 
 function getRole($id)
 {
-    $roles=['2'=>'Usuario normal','1'=>'Administrador','0'=>'Administrador'];
+    $roles=['1'=>'Usuario','0'=>'Administrador'];
     return $roles[$id];
 }
 

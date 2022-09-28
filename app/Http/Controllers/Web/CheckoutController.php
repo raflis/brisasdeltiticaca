@@ -171,6 +171,12 @@ class CheckoutController extends Controller
                 'user_email' => $invoice['user_email'],
             ];
             $recorded = Sale::create($data_sale);
+
+            foreach(session('cart') as $id => $details):
+                $updated = WorkshopEvent::find($id);
+                $updated->stock = $updated->stock - 1;
+                $updated->save();
+            endforeach;
     
             $data_mail = $data_sale;
             $email = $invoice['user_email'];

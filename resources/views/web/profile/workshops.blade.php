@@ -36,11 +36,13 @@
                                     <i class="fa-solid fa-briefcase"></i> Mis talleres
                                 </a>
                             </li>
+                            @if(Auth::user()->membership != 'none')
                             <li class="">
                                 <a href="{{ route('profile.membership') }}">
                                     <i class="fa-solid fa-credit-card"></i> Mi facturación
                                 </a>
                             </li>
+                            @endif
                         </ul>
                     </div>
                     <div class="content_right">
@@ -61,6 +63,8 @@
                                             <th>Categoria</th>
                                             <th>Fecha del taller</th>
                                             <th>Medio de pago</th>
+                                            <th>Fecha de pago</th>
+                                            <th>Código de pago</th>
                                             <th>Precio</th>
                                         </tr>
                                     </thead>
@@ -76,6 +80,8 @@
                                                 <td><p>{{ $it['category'] }}</p></td>
                                                 <td><p>{{ ucwords(\Carbon\Carbon::parse($it['event_date'])->formatLocalized('%A, %d de %B %Y'), 'UTF-8') }}</p></td>
                                                 <td><p>{{ $item->effectiveBrand }} - {{ $item->card }}</p></td>
+                                                <td><p>{{ \Carbon\Carbon::parse($item->transaction_date)->format('d/m/Y H:i:s') }}</p></td>
+                                                <td><p>{{ $item->purchase_number }}</p></td>
                                                 <td><p>S/ {{ $it['price'] }}</p></td>
                                             </tr>
                                             @endforeach

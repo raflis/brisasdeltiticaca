@@ -18,7 +18,7 @@ class Event extends Model
     protected $fillable = [
         'category_id', 'name', 'slug', 'event_date', 'description', 
         'image1', 'image2', 'banner1',
-        'banner2', 'images', 'link', 'featured',
+        'banner2', 'map', 'images', 'link', 'featured',
     ];
 
     public function category()

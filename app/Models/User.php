@@ -32,6 +32,8 @@ class User extends Authenticatable
         'email',
         'membership',
         'password',
+        'birth_department', 'birth_province', 'birth_district', 'department', 'province', 'district', 'address',
+        'landline', 'telephone', 'profession', 'partner_type', 'debt',
     ];
 
     /**
@@ -51,7 +53,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'birthday' => 'date',
     ];
 
     public function sales()

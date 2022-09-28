@@ -185,7 +185,7 @@
                             <h3>
                                 Talleres de Danza
                             </h3>
-                            <a href="">
+                            <a href="{{ route('workshops') }}">
                                 Más información
                             </a>
                         </div>
@@ -195,7 +195,7 @@
                             <h3>
                                 Talleres de Música
                             </h3>
-                            <a href="">
+                            <a href="{{ route('workshops') }}">
                                 Más información
                             </a>
                         </div>
@@ -226,7 +226,7 @@
                                 </h2>
                                 <div class="description">
                                     <p>
-                                        {{ Str::limit($item->summary, 160) }}
+                                        {{ Str::limit($item->summary, 140) }}
                                     </p>
                                 </div>
                             </div>

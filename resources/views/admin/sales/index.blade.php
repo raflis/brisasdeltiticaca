@@ -83,7 +83,7 @@
                                 <td>{{ $record->card }} {{ $record->effectiveBrand }}</td>
                                 <td>{{ $record->amount }} {{ $record->currency }}</td>
                                 <td>
-                                    <ul style="padding: .75rem">
+                                    <ul style="padding: 0 .75rem .75rem">
                                     @foreach ($record->detail as $item)
                                         <li>{{ $item['name'] }}</li>
                                     @endforeach

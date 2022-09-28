@@ -93,6 +93,23 @@
   </div>
 </div>
 
+<div class="form-group col-sm-4">
+  {!! Form::label('map', 'Imagen del mapa:', ['class' => '']) !!} <strong>(1042 x 683px)</strong><code>*</code>
+  <div class="input-group">
+    <span class="input-group-btn">
+      <a id="lfm5" data-input="thumbnail5" data-preview="holder5" class="btn btn-primary text-white">
+      <i class="far fa-image"></i> Elegir
+      </a>
+    </span>
+    {!! Form::text('map', null, ['class' => 'form-control', 'id' => 'thumbnail5', 'required']) !!}
+  </div>
+  <div id="holder5" style="margin-top:15px;max-height:100px;">
+    @if (Route::currentRouteName()=="two_events.edit")
+      <img src="{{ $event->map }}" alt="" style="height:5rem">
+    @endif
+  </div>
+</div>
+
 <div class="form-group col-md-4">
   {{ Form::label('featured', '¿Destacado?:') }} <code>*</code>
   {{ Form::select('featured', [0 => 'No', 1 => 'Si'], null, ['class' => 'custom-select']) }}
@@ -102,8 +119,6 @@
   {{ Form::label('link', 'Link Joinnus:') }} <code>*</code>
   {{ Form::text('link', null, ['class' => 'form-control', 'placeholder' => 'Link de Joinnus', 'required']) }}
 </div>
-
-<div class="col-md-4"></div>
 
 <div class="px-3 col-sm-12 mb-3">
   <div class="card shadow col-sm-12 px-0">
@@ -268,6 +283,7 @@
   $('#lfm2').filemanager('image', {prefix: route_prefix});
   $('#lfm3').filemanager('image', {prefix: route_prefix});
   $('#lfm4').filemanager('image', {prefix: route_prefix});
+  $('#lfm5').filemanager('image', {prefix: route_prefix});
   $('#lfm_images0').filemanager('image', {prefix: route_prefix});
   @if (Route::currentRouteName()=="two_events.edit")
   @foreach ($event->images as $item)

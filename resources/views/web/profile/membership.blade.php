@@ -36,11 +36,13 @@
                                     <i class="fa-solid fa-briefcase"></i> Mis talleres
                                 </a>
                             </li>
+                            @if(Auth::user()->membership != 'none')
                             <li class="active">
                                 <a href="{{ route('profile.membership') }}">
                                     <i class="fa-solid fa-credit-card"></i> Mi facturación
                                 </a>
                             </li>
+                            @endif
                         </ul>
                     </div>
                     <div class="content_right">

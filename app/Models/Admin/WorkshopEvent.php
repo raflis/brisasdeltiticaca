@@ -18,7 +18,7 @@ class WorkshopEvent extends Model
     protected $fillable = [
         'workshop_id', 'name', 'slug', 'event_date', 'description', 
         'image1', 'image2', 'banner1',
-        'banner2', 'images', 'price'
+        'banner2', 'images', 'price', 'stock',
     ];
 
     public function workshop()

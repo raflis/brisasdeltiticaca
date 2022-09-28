@@ -61,6 +61,7 @@ class OneEventController extends Controller
             'image2' => 'required',
             'banner1' => 'required',
             'banner2' => 'required',
+            'map' => 'required',
             'link' => 'required',
             'featured' => 'required',
         ];
@@ -126,6 +127,7 @@ class OneEventController extends Controller
             'image2' => 'required',
             'banner1' => 'required',
             'banner2' => 'required',
+            'map' => 'required',
             'link' => 'required',
             'featured' => 'required',
         ];

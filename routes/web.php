@@ -41,9 +41,9 @@ Route::group(['middleware' => ['auth'] ], function () {
 
 Route::get('/', [App\Http\Controllers\Web\WebController::class, 'index'])->name('index');
 Route::get('nosotros', [App\Http\Controllers\Web\WebController::class, 'aboutus'])->name('aboutus');
-Route::get('eventos', [App\Http\Controllers\Web\WebController::class, 'events'])->name('events');
+Route::get('conciertos', [App\Http\Controllers\Web\WebController::class, 'events'])->name('events');
 //Route::get('evento/{slug}/{id}', [App\Http\Controllers\Web\WebController::class, 'event'])->name('event');
-Route::get('evento/{slug}/{id}', [App\Http\Controllers\Web\WebController::class, 'event_buy'])->name('event');
+Route::get('concierto/{slug}/{id}', [App\Http\Controllers\Web\WebController::class, 'event_buy'])->name('event');
 Route::get('talleres', [App\Http\Controllers\Web\WebController::class, 'workshops'])->name('workshops');
 Route::get('taller/{slug}/{id}', [App\Http\Controllers\Web\WebController::class, 'workshop_event'])->name('workshop_event');
 Route::get('contacto', [App\Http\Controllers\Web\WebController::class, 'contact'])->name('contact');

@@ -26,27 +26,44 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $rules=[
-            'email'=>'required|email',
-            'password'=>'required',
+            'email' => 'required',
+            'password' => 'required',
         ];
 
         $messages=[
-            'email.required'=> 'Su email electrónico es requerido',
-            'email.email'=> 'El formato de su correo electrónico es invalido',
-            'password.required'=> 'Por favor escriba una contraseña',
+            'email.required' => 'Su email electrónico es requerido',
+            //'email.email' => 'El formato de su correo electrónico es invalido',
+            'password.required' => 'Por favor escriba una contraseña',
         ];
 
         $validator=Validator::make($request->all(), $rules, $messages);
         if($validator->fails()):
             return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withInput();
         else:
-            if(Auth::attempt(['email' => $request->email, 'password' => $request->password], true)):
-                if(Auth::user()->role == 0):
-                    return response()->json(['success' => true, 'ruta' => 'admin']);
+            $user_login = explode('-', $request->email);
+            if(count($user_login) >= 2):
+                if(strlen($user_login[1]) == 0):
+                    return response()->json(['success' => false]);
                 endif;
-                return response()->json(['success' => true, 'ruta' => 'myaccount/profile']);
-            else:
-                return response()->json(['success' => false]);
+                if(Auth::attempt(['id' => $user_login[1], 'password' => $request->password], true)):
+                    if(Auth::user()->role == 0):
+                        return response()->json(['success' => true, 'ruta' => 'admin']);
+                    endif;
+                    return response()->json(['success' => true, 'ruta' => 'myaccount/profile']);
+                else:
+                    return response()->json(['success' => false]);
+                endif;
+            endif;
+            
+            if(count($user_login) <= 1):
+                if(Auth::attempt(['email' => $request->email, 'password' => $request->password], true)):
+                    if(Auth::user()->role == 0):
+                        return response()->json(['success' => true, 'ruta' => 'admin']);
+                    endif;
+                    return response()->json(['success' => true, 'ruta' => 'myaccount/profile']);
+                else:
+                    return response()->json(['success' => false]);
+                endif;
             endif;
         endif;
     }
@@ -106,6 +123,7 @@ class LoginController extends Controller
             $request->merge(['password' => Hash::make($request->password)]);
             $request->merge(['role' => 1]);
             $request->merge(['avatar' => 'avatar.png']);
+            $request->merge(['membership' => 'none']);
             if(!$request->information):
                 $request->merge(['information' => 0]);
             endif;
@@ -125,31 +143,31 @@ class LoginController extends Controller
     public function update(Request $request, $id)
     {
         $rules=[
-            'password'=>'required',
-            'newpassword'=>'required|min:8',
-            'renewpassword'=>'required|min:8|same:newpassword',
+            'password' => 'required',
+            'newpassword' => 'required|min:8',
+            'renewpassword' => 'required|min:8|same:newpassword',
         ];
 
         $messages=[
-            'password.required'=> 'Por favor escriba su contraseña',
-            'newpassword.required'=> 'Por favor escriba su nueva contraseña',
-            'renewpassword.required'=> 'Por favor escriba nuevamente su nueva contraseña',
-            'newpassword.min'=> 'La nueva contraseña debe tener al menos 8 caracteres',
-            'renewpassword.min'=> 'La nueva contraseña debe tener al menos 8 caracteres',
-            'renewpassword.same'=> 'Las contraseñas no coinciden',
+            'password.required' => 'Por favor escriba su contraseña',
+            'newpassword.required' => 'Por favor escriba su nueva contraseña',
+            'renewpassword.required' => 'Por favor escriba nuevamente su nueva contraseña',
+            'newpassword.min' => 'La nueva contraseña debe tener al menos 8 caracteres',
+            'renewpassword.min' => 'La nueva contraseña debe tener al menos 8 caracteres',
+            'renewpassword.same' => 'Las contraseñas no coinciden',
         ];
 
         $validator=Validator::make($request->all(), $rules, $messages);
         if($validator->fails()):
-            return back()->withErrors($validator)->with('message','Se ha producido un error')->with('typealert','danger')->withInput();
+            return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withInput();
         else:
             $user=User::find(Auth::user()->id);
             if(Hash::check($request->password, Auth::user()->password)):
                 $user->password=Hash::make($request->newpassword);
                 $user->save();
-                return back()->with('message','Contraseña actualizada con éxito')->with('typealert','success');
+                return back()->with('message', 'Contraseña actualizada con éxito')->with('typealert', 'success');
             else:
-                return back()->withErrors($validator)->with('message','La contraseña ingresada no coincide')->with('typealert','danger')->withInput();
+                return back()->withErrors($validator)->with('message', 'La contraseña ingresada no coincide')->with('typealert', 'danger')->withInput();
             endif;
         endif;
     }

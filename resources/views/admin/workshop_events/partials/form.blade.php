@@ -96,7 +96,12 @@
   {{ Form::number('price', null, ['class' => 'form-control', 'placeholder' => 'Precio S/', 'required', 'min' => 0]) }}
 </div>
 
-<div class="col-md-8"></div>
+<div class="form-group col-sm-4">
+  {{ Form::label('stock', 'Aforo:') }} <code>*</code>
+  {{ Form::number('stock', null, ['class' => 'form-control', 'placeholder' => 'Aforo', 'required', 'min' => 1]) }}
+</div>
+
+<div class="col-md-4"></div>
 
 <div class="px-3 col-sm-12 mb-3">
   <div class="card shadow col-sm-12 px-0">

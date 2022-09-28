@@ -9,17 +9,6 @@
             <div class="col-7 col-md-8 right-menu">
                 <ul>
                     <li>
-                        @guest
-                        <a href="{{ route('login.create') }}" class="btn-socio">
-                            Hazte socio
-                        </a>
-                        @else
-                        <a href="{{ route('profile.membership') }}" class="btn-socio">
-                            Hazte socio
-                        </a>
-                        @endguest
-                    </li>
-                    <li>
                         <div class="cant" id="cant_header">
                         @if(session('cart'))
                             {{ count(session('cart')) }}
@@ -75,13 +64,13 @@
                     <a class="lnk-head-mobile {{ (Route::currentRouteName() == 'aboutus')?'active':'' }}" href="{{ route('aboutus') }}">Nosotros</a>
                 </li>
                 <li>
-                    <a class="lnk-head-mobile {{ (Route::currentRouteName() == 'events' || Route::currentRouteName() == 'event')?'active':'' }}" href="{{ route('events') }}">Eventos</a>
+                    <a class="lnk-head-mobile {{ (Route::currentRouteName() == 'events' || Route::currentRouteName() == 'event')?'active':'' }}" href="{{ route('events') }}">Conciertos</a>
                 </li>
                 <li>
-                    <a class="lnk-head-mobile {{ (Route::currentRouteName() == 'workshops' || Route::currentRouteName() == 'workshop_event')?'active':'' }}" href="{{ route('workshops') }}">Centro de arte</a>
+                    <a class="lnk-head-mobile {{ (Route::currentRouteName() == 'workshops' || Route::currentRouteName() == 'workshop_event')?'active':'' }}" href="{{ route('workshops') }}">Talleres de danza</a>
                 </li>
                 <li>
-                    <a class="lnk-head-mobile @if(preg_match("/blog|post/", Route::currentRouteName())) active @endif" href="{{ route('blog') }}">Blog</a>
+                    <a class="lnk-head-mobile @if(preg_match("/blog|post/", Route::currentRouteName())) active @endif" href="{{ route('blog') }}">Blog y noticias</a>
                 </li>
                 <li>
                     <a class="lnk-head-mobile {{ (Route::currentRouteName() == 'contact')?'active':'' }}" href="{{ route('contact') }}">Contacto</a>
@@ -122,7 +111,7 @@
                 </div>
                 <form action="{{ route('login.login') }}" method="POST" id="form_login">
                     @csrf
-                    <input name="email" type="email" class="form-control" placeholder="Correo electrónico" required>
+                    <input name="email" type="text" class="form-control" placeholder="Usuario / Email" required>
                     <input name="password" type="password" class="form-control" placeholder="Contraseña" required>
                     <a href="" class="a_forgot">
                         ¿Olvidó su contraseña?

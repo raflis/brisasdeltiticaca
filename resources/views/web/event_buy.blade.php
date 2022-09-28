@@ -9,7 +9,7 @@
                 <div class="items">
                     <div class="item1" style="background-image:url('{{ $event->banner1 }}')">
                         <p class="wow fadeIn" data-wow-delay="0.5s">
-                            Eventos
+                            Conciertos
                         </p>
                         <h1 class="wow fadeIn" data-wow-delay="0.6s">
                             Noches de Folklore
@@ -148,6 +148,9 @@
                         </div>
                         <div class="linecolor"></div>
                     </div>
+                </div>
+                <div class="image_map">
+                    <img src="{{ $event->map }}" alt="">
                 </div>
             </div>
         </div>
