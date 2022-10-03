@@ -34,6 +34,7 @@ class User extends Authenticatable
         'password',
         'birth_department', 'birth_province', 'birth_district', 'department', 'province', 'district', 'address',
         'landline', 'telephone', 'profession', 'partner_type', 'debt',
+        'observation_1', 'observation_2', 'observation_3',
     ];
 
     /**
@@ -54,6 +55,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function scopeName($query, $name)
+    {
+        if($name):
+            return $query->Where('name', 'LIKE', "%$name%");
+        endif;
+    }
+
+    public function scopeLastname($query, $name)
+    {
+        if($name):
+            return $query->Where('lastname', 'LIKE', "%$name%");
+        endif;
+    }
+
+    public function scopeDocument($query, $name)
+    {
+        if($name):
+            return $query->Where('document', 'LIKE', "%$name%");
+        endif;
+    }
 
     public function sales()
     {

@@ -80,7 +80,7 @@
                                   <i class="fas fa-trash"></i>
                                 </a>
                                 @endif
-                                {!! Form::label('aboutus_images','Selecciona una imagen:', ['class' => '']) !!} <small><strong>(693 x 323px)</strong></small> <code>*</code>
+                                {!! Form::label('aboutus_images','Selecciona una imagen:', ['class' => '']) !!} <small><strong>(693 x 450px)</strong></small> <code>*</code>
                                 <div class="input-group">
                                     <span class="input-group-btn">
                                         <a id="lfm_aboutus{{ $loop->iteration }}" data-input="aboutus_images{{ $loop->iteration }}" data-preview="holder_aboutus{{ $loop->iteration }}" class="btn btn-primary text-white">
@@ -147,7 +147,7 @@
 								'<i class="fas fa-trash"></i>' +
 							'</a>' +
 
-                '<label for="aboutus_images" class="">Selecciona una imagen:</label> <small><strong>(693 x 323px)</strong></small> <code>*</code>' +
+                '<label for="aboutus_images" class="">Selecciona una imagen:</label> <small><strong>(693 x 450px)</strong></small> <code>*</code>' +
                 '<div class="input-group">' +
                   '<span class="input-group-btn">' +
                       '<a id="lfm_aboutus'+i+'" data-input="aboutus_images'+i+'" data-preview="holder_aboutus'+i+'" class="btn btn-primary text-white">' +

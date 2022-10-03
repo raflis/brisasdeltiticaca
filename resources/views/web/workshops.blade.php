@@ -109,7 +109,7 @@
                 <div class="carousel-talleres wow fadeIn" data-wow-delay="0.6s">
                     @foreach ($item->images as $itemm)
                     <div class="item">
-                        <img src="{{ asset('images/Nosotros_slide.png') }}" alt="">
+                        <img src="{{ $itemm['image'] }}" alt="">
                     </div>
                     @endforeach
                 </div>

@@ -42,9 +42,18 @@ class UserController extends Controller
         return $districts;
     }
     
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::where('membership', '<>', 'none')->orderBy('id','Desc')->paginate();
+        $name = $request->get('name');
+        $lastname = $request->get('lastname');
+        $document = $request->get('document');
+
+        $users = User::where('membership', '<>', 'none')
+                    ->orderBy('id','Desc')
+                    ->name($name)
+                    ->lastname($lastname)
+                    ->document($document)
+                    ->paginate();
         return view('admin.users.index', compact('users'));
     }
 
@@ -188,7 +197,6 @@ class UserController extends Controller
             'district' => 'required',
             'address' => 'required',
             'partner_type' => 'required',
-            'password' => 'required',
         ];
 
         $messages=[
@@ -199,8 +207,13 @@ class UserController extends Controller
         if($validator->fails()):
             return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withInput();
         else:
+            
             $updated = User::find($id);
-            $request->merge(['password' => Hash::make($request->password)]);
+            if($request->password):
+                $request->merge(['password' => Hash::make($request->password)]);
+            else:
+                $request->merge(['password' => $updated->password]);
+            endif;
             $updated->fill($request->all())->save();
             return redirect()->route('users.index')->with('message', 'Actualizado con éxito.')->with('typealert', 'success');
         endif;

@@ -79,14 +79,37 @@
                                     <p>
                                         <span>Tarjeta:</span> {{ $subscription->effectiveBrand }} {{ $subscription->card }}
                                     </p>
-                                    <p class="mb-3">
+                                    <p>
                                         <span>Monto: </span> {{ $subscription->amount }} {{ $subscription->currency }}
+                                    </p>
+                                    <p class="mb-3">
+                                        <span>Facturación: </span> Tu fecha de pago será el día {{ \Carbon\Carbon::parse($subscription->updated_at)->format('d') }} de cada mes
                                     </p>
                                     <button class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#membershipCancel">
                                         <i class="fa-regular fa-credit-card"></i> Cancelar membresía
                                     </button>                           
                                 @endif
                             </div>
+                        </div>
+                        <div class="tit_membership mt-5">
+                            <h3>Observaciones</h3>
+                        </div>
+                        <div class="membership">
+                            @if(Auth::user()->observation_1)
+                            <p>
+                                <span>Cuotas pendientes:</span> {{ Auth::user()->observation_1 }}
+                            </p>
+                            @endif
+                            @if(Auth::user()->observation_2)
+                            <p>
+                                <span>Tiene una deuda pendiente de :</span> {{ Auth::user()->observation_2 }}
+                            </p>
+                            @endif
+                            @if(Auth::user()->observation_3)
+                            <p>
+                                <span>Tiene una mora por pagar de :</span> {{ Auth::user()->observation_3 }}
+                            </p>
+                            @endif
                         </div>
                     </div>
                 </div>

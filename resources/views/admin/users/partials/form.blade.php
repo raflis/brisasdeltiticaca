@@ -106,6 +106,21 @@
   {{ Form::text('profession', null, ['class' => 'form-control', 'placeholder' => 'Profesión']) }}
 </div>
 
+<div class="form-group col-sm-4">
+  {{ Form::label('observation_1', 'Cuotas pendientes:') }}
+  {{ Form::text('observation_1', null, ['class' => 'form-control', 'placeholder' => 'Cuotas pendientes']) }}
+</div>
+
+<div class="form-group col-sm-4">
+  {{ Form::label('observation_2', 'Deuda pendiente:') }}
+  {{ Form::text('observation_2', null, ['class' => 'form-control', 'placeholder' => 'Deuda pendiente']) }}
+</div>
+
+<div class="form-group col-sm-4">
+  {{ Form::label('observation_3', 'Mora por pagar:') }}
+  {{ Form::text('observation_3', null, ['class' => 'form-control', 'placeholder' => 'Mora por pagar']) }}
+</div>
+
 <div class="form-group col-md-6">
   {{ Form::label('partner_type', 'Tipo de socio:') }} <code>*</code>
   {{ Form::select('partner_type', $partner_type, null, ['class' => 'custom-select', 'required']) }}
@@ -113,7 +128,7 @@
 
 <div class="form-group col-md-6">
   <label class="input-label" for="">Contraseña</label>
-  <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+  <input type="password" class="form-control" name="password" placeholder="Contraseña">
 </div>
 
 

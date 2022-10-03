@@ -30,6 +30,30 @@
                             </span>
                         </a>
                     </div>
+                    <div class="card-body">
+                        <div class="buscar-descarga">
+                            <form action="{{ route('users.index') }}" method="GET" class="row" style="width:100%">
+                            <div class="form-group mb-0 mx-1 col-md-2">
+                                <label class="pr-1">Nombre:</label>
+                                <input type="text" name="name" class="form-control" value="{{ request('name') }}" placeholder="Nombre">
+                            </div>
+                            <div class="form-group mb-0 mx-1 col-md-2">
+                                <label class="labelspan pr-1">Apellido:</label>
+                                <input type="text" name="lastname" class="form-control" value="{{ request('lastname') }}" placeholder="Apellido">
+                            </div>
+                            <div class="form-group mb-0 mx-1 col-md-2">
+                                <label class="labelspan pr-1">Documento:</label>
+                                <input type="text" name="document" class="form-control" value="{{ request('document') }}" placeholder="Documento">
+                            </div>
+                            <div class="form-group col-md-2 mb-0">
+                                <label class="labelspan pr-1"></label>
+                                <button type="submit" class="btn btn-primary btn-buscar">
+                                    Buscar &nbsp;&nbsp;<i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
                     <div class="px-3">
                         @include('admin.includes.alert')
                     </div>

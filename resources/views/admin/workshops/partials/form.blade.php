@@ -121,7 +121,7 @@
           <i class="fas fa-trash"></i>
         </a>
         @endif
-        {!! Form::label('images','Selecciona una imagen:',['class'=>'']) !!} <small><strong>(963 x 323px)</strong></small> <code>*</code>
+        {!! Form::label('images','Selecciona una imagen:',['class'=>'']) !!} <small><strong>(963 x 450px)</strong></small> <code>*</code>
         <div class="input-group">
             <span class="input-group-btn">
                 <a id="lfm_workshop{{ $loop->iteration }}" data-input="images{{ $loop->iteration }}" data-preview="holder_workshop{{ $loop->iteration }}" class="btn btn-primary text-white">
@@ -166,7 +166,7 @@
 								'<i class="fas fa-trash"></i>' +
 							'</a>' +
 
-                '<label for="images" class="">Selecciona una imagen:</label> <small><strong>(963 x 323px)</strong></small> <code>*</code>' +
+                '<label for="images" class="">Selecciona una imagen:</label> <small><strong>(963 x 450px)</strong></small> <code>*</code>' +
                 '<div class="input-group">' +
                   '<span class="input-group-btn">' +
                       '<a id="lfm_workshop'+i+'" data-input="images'+i+'" data-preview="holder_workshop'+i+'" class="btn btn-primary text-white">' +

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use Http;
 use Auth;
 use Hash;
 use Mail;
@@ -15,10 +16,13 @@ use App\Models\Admin\Event;
 use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
 use App\Models\Admin\Product;
+use Illuminate\Support\Carbon;
+use App\Models\Admin\PageField;
 use PHPUnit\Framework\TestCase;
 use App\Models\Admin\WorkshopEvent;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\FacturactivaController;
 
 class CheckoutController extends Controller
 {
@@ -185,6 +189,78 @@ class CheckoutController extends Controller
             {
                 $message->to($email)->subject($data_mail['name_email'].', Gracias por tu compra');
             });
+
+            /* Facturación electrónica */
+
+            $pagefield = PageField::find(1);
+            $facturactiva_token = $pagefield->facturactiva_token;
+            $now = Carbon::now();
+            $minutes = $now->diffInMinutes($pagefield->facturactiva_token_created);
+            if($minutes >= 400):
+                $soho = new FacturactivaController();
+                $soho->generate_access_token();
+                $pagefield0 = PageField::find(1);
+                $facturactiva_token = $pagefield0->facturactiva_token;
+            endif;
+
+            $total_amount = $answer['kr-answer']['transactions'][0]['amount']/100;
+
+            foreach(session('cart') as $id => $details):
+                $detalle[] = [
+                    "cantidadItem" => 1,
+                    "unidadMedidaItem" => "ZZ",
+                    "nombreItem" => $details['name'],
+                    "precioItem" => $details['price'],
+                    "precioItemSinIgv" => round(($details['price']/1.18), 2),
+                    "montoItem" => round(($details['price']/1.18), 2),
+                    "codAfectacionIgv" => "10",
+                    "tasaIgv" => 0.18,
+                    "montoIgv" => round(($details['price'] - round(($details['price']/1.18), 2)), 2),
+                    "idOperacion" => "1",
+                    "codItem" => "STC"
+                ];
+            endforeach;
+
+            $data = [
+                "correoReceptor" => $invoice['user_email'],
+                "tipoDocumento" => "03",
+                "fechaEmision" => Carbon::now()->format('Y-m-d'),
+                "idTransaccion" => "03-20538843939-BW01-".$recorded->id,
+                "documento" => array(
+                    "serie" => "BW01",
+                    "correlativo" => $recorded->id,
+                    "nombreEmisor" => "ASOCIACION CULTURAL BRISAS DEL TITICACA",
+                    "tipoDocEmisor" => "6",
+                    "numDocEmisor" => "20100642281",
+                    "direccionOrigen" => "Cal. Heroes de Tarapaca Nro. 168",
+                    "direccionUbigeo" => "140101",
+                    "tipoMoneda" => "PEN",
+                    "mntTotalIgv" => round(($total_amount - round(($total_amount/1.18), 2)), 2),
+                    "mntTotal" => $total_amount,
+                    "tipoFormatoRepresentacionImpresa" => "GENERAL",
+                    "tipoDocReceptor" => "0", //montos mayores a 700 usar "1" y enviar documento real
+                    "numDocReceptor" => $invoice['user_document'],
+                    "nombreReceptor" => $invoice['user_name'].' '.$invoice['user_lastname'],
+                    "direccionDestino" => $invoice['user_address'],
+                    "fechaVencimiento" => Carbon::now()->format('Y-m-d'),
+                    "mntNeto" => round(($total_amount/1.18), 2)
+                ),
+                "impuesto" => array(
+                    array(
+                        "codImpuesto" => "1000",
+                        "montoImpuesto" => round(($total_amount - round(($total_amount/1.18), 2)), 2),
+                        "tasaImpuesto" => 0.18
+                    )
+                ),
+                "detalle" => $detalle
+            ];
+
+            $response = Http::withHeaders([
+                'Authorization' => 'Bearer '.$facturactiva_token,
+                'Content-Type' => 'application/json',
+            ])->post('https://dev.api.emisores.facturactiva.com/emission/documents', $data);
+
+            /* Facturación electrónica */
     
             session()->forget('cart');
             session()->forget('invoice');

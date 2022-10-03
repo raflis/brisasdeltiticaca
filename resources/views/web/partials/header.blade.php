@@ -8,6 +8,11 @@
             </div>
             <div class="col-7 col-md-8 right-menu">
                 <ul>
+                    @guest
+                    <li>
+                        <a href="" class="btn-socio" data-bs-toggle="modal" data-bs-target="#loginModal">Login Socio</a>
+                    </li>
+                    @endguest
                     <li>
                         <div class="cant" id="cant_header">
                         @if(session('cart'))
@@ -33,7 +38,11 @@
                                 <img src="{{ asset('images/user.png') }}" alt="">
                             </div>
                             <p>
-                                {{ ucwords(Auth::user()->name) }}
+                                @php
+                                $name_user = explode(" ", Auth::user()->name);
+                                $name_user = trim($name_user[0]);
+                                @endphp
+                                {{ ucwords($name_user) }}
                             </p>
                         </a>
                         @endguest
@@ -111,7 +120,7 @@
                 </div>
                 <form action="{{ route('login.login') }}" method="POST" id="form_login">
                     @csrf
-                    <input name="email" type="text" class="form-control" placeholder="Usuario / Email" required>
+                    <input name="email" type="text" class="form-control" placeholder="Usuario / Email / Id Socio" required>
                     <input name="password" type="password" class="form-control" placeholder="Contraseña" required>
                     <a href="" class="a_forgot">
                         ¿Olvidó su contraseña?
@@ -119,9 +128,10 @@
                     <button type="submit">
                         INGRESAR
                     </button>
+                    <p>¿No tienes cuenta? <a href="{{ route('login.create') }}">Regístrate</a></p>
                 </form>
                 <p>
-                    © 2022 - Brisas del Titicaca
+                    © {{ date('Y') }} - Brisas del Titicaca
                 </p>
             </div>
             <div class="modal-body" id="modal_forgot">

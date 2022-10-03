@@ -28,6 +28,6 @@ class PageField extends Model
         'contact_title1', 'contact_title2', 'contact_image', 'contact_map', 
         'contact_telephone', 'contact_email', 'contact_address', 'contact_schedule1', 'contact_schedule1_time',
         'contact_schedule2', 'contact_schedule2_time', 'facebook', 'instagram', 'twitter', 
-        'whatsapp', 'youtube', 'script', 'subscription_price',
+        'whatsapp', 'youtube', 'script', 'subscription_price', 'facturactiva_token', 'facturactiva_token_created',
     ];
 }

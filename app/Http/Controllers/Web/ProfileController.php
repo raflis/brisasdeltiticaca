@@ -252,24 +252,24 @@ class ProfileController extends Controller
         $messages=[
             'name.required' => 'Ingresa tu nombre',
             'lastname.required' => 'Ingresa tu apellido',
-            'newpassword.min'=> 'La nueva contraseña debe tener al menos 8 caracteres',
-            'renewpassword.min'=> 'La nueva contraseña debe tener al menos 8 caracteres',
-            'renewpassword.same'=> 'Las contraseñas no coinciden.',
+            'newpassword.min' => 'La nueva contraseña debe tener al menos 8 caracteres',
+            'renewpassword.min' => 'La nueva contraseña debe tener al menos 8 caracteres',
+            'renewpassword.same' => 'Las contraseñas no coinciden.',
         ];
 
         $validator=Validator::make($request->all(), $rules, $messages);
         if($validator->fails()):
-            return back()->withErrors($validator)->with('message','Se ha producido un error')->with('typealert','danger')->withInput();
+            return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withInput();
         else:
             if(Auth::user()->id <> $id):
-                return back()->withErrors($validator)->with('message','¿Qué haces? o.O')->with('typealert','danger')->withInput();
+                return back()->withErrors($validator)->with('message', '¿Qué haces? o.O')->with('typealert', 'danger')->withInput();
             endif;
 
             if($request->newpassword && $request->renewpassword):
                 if($request->newpassword === $request->renewpassword):
                     $request->merge(['password' => Hash::make($request->newpassword)]);
                 else:
-                    return back()->withErrors($validator)->with('message','La contraseñas no coinciden')->with('typealert','danger')->withInput();
+                    return back()->withErrors($validator)->with('message', 'La contraseñas no coinciden')->with('typealert', 'danger')->withInput();
                 endif;
             endif;
 
@@ -289,7 +289,7 @@ class ProfileController extends Controller
             
             $user = User::find(Auth::user()->id);
             $user->fill($request->all())->save();
-            return back()->with('message','Datos actualizados con éxito')->with('typealert','success');
+            return back()->with('message', 'Datos actualizados con éxito')->with('typealert', 'success');
         endif;
     }
 }
